@@ -11,6 +11,9 @@
   <meta property="og:image" content="/assets/cover.jpg" />
   <meta name="theme-color" content="#0f172a" />
   <link rel="icon" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,172 +22,435 @@
           fontFamily: {
             sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"]
           },
-          colors: { base: { bg:"#0b1220", card:"#0f172a", ring:"#334155", text:"#e5e7eb", dim:"#94a3b8" } },
-          boxShadow: { soft: "0 10px 30px rgba(0,0,0,0.25)" }
+          colors: { 
+            base: { bg:"#0b1220", card:"#0f172a", ring:"#334155", text:"#e5e7eb", dim:"#94a3b8" },
+            accent: { primary: "#3b82f6", secondary: "#8b5cf6" }
+          },
+          boxShadow: { 
+            soft: "0 10px 30px rgba(0,0,0,0.25)",
+            glow: "0 0 40px rgba(59, 130, 246, 0.15)"
+          }
         }
       }
     }
   </script>
   <style>
-    @keyframes fade { from {opacity:0; transform: translateY(6px);} to {opacity:1; transform: none;} }
-    .fade { animation: fade .6s ease both; }
+    @keyframes fade { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: none;} }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes slideUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: none;} }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .fade { animation: fade .8s ease both; }
+    .fade-delay-1 { animation: fade .8s ease .2s both; }
+    .fade-delay-2 { animation: fade .8s ease .4s both; }
+    .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .section-title { position: relative; display: inline-block; }
+    .section-title::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 40px; height: 3px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 2px; }
+    .img-hover { transition: transform 0.4s ease, filter 0.4s ease; }
+    .img-hover:hover { transform: scale(1.05); filter: brightness(1.1); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .skill-tag { transition: all 0.3s ease; }
+    .skill-tag:hover { background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; transform: scale(1.05); }
+    .card-glow { position: relative; }
+    .card-glow::before { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3)); border-radius: inherit; z-index: -1; opacity: 0; transition: opacity 0.3s ease; }
+    .card-glow:hover::before { opacity: 1; }
   </style>
 </head>
-<body class="bg-base-bg text-base-text font-sans antialiased">
-  <header class="sticky top-0 z-50 backdrop-blur border-b border-base-ring/40">
-    <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-      <a href="#top" class="text-base-text/90 font-semibold tracking-tight">MWB</a>
-      <ul class="hidden md:flex gap-6 text-sm text-base-dim">
-        <li><a href="#about" class="hover:text-base-text">About</a></li>
-        <li><a href="#resume" class="hover:text-base-text">Resume</a></li>
-        <li><a href="#projects" class="hover:text-base-text">Projects</a></li>
-        <li><a href="#research" class="hover:text-base-text">Research</a></li>
-        <li><a href="#involvement" class="hover:text-base-text">Involvement</a></li>
-        <li><a href="#gallery" class="hover:text-base-text">Gallery</a></li>
-        <li><a href="#contact" class="hover:text-base-text">Contact</a></li>
+<body class="bg-base-bg text-base-text font-sans antialiased overflow-x-hidden">
+  <!-- Enhanced Header with glass effect -->
+  <header class="sticky top-0 z-50 glass border-b border-white/10">
+    <nav class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+      <a href="#top" class="text-xl font-bold gradient-text tracking-tight hover:opacity-80 transition-opacity">MWB</a>
+      <ul class="hidden md:flex gap-8 text-sm font-medium text-base-dim">
+        <li><a href="#about" class="nav-link hover:text-base-text transition-colors">About</a></li>
+        <li><a href="#resume" class="nav-link hover:text-base-text transition-colors">Resume</a></li>
+        <li><a href="#projects" class="nav-link hover:text-base-text transition-colors">Projects</a></li>
+        <li><a href="#research" class="nav-link hover:text-base-text transition-colors">Research</a></li>
+        <li><a href="#involvement" class="nav-link hover:text-base-text transition-colors">Involvement</a></li>
+        <li><a href="#gallery" class="nav-link hover:text-base-text transition-colors">Gallery</a></li>
+        <li><a href="#contact" class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium hover:opacity-90 transition-opacity">Contact</a></li>
       </ul>
-      <a href="#contact" class="inline-flex md:hidden text-sm text-base-dim">Contact</a>
+      <a href="#contact" class="md:hidden px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-medium">Contact</a>
     </nav>
   </header>
 
-  <!-- Full-width background hero -->
-  <section id="top" class="relative">
-    <div style="background-image:url('/assets/cover.jpg');" class="absolute inset-0 bg-center bg-cover"></div>
-    <div class="absolute inset-0 bg-black/45"></div>
+  <!-- Enhanced Hero Section -->
+  <section id="top" class="relative min-h-screen flex items-center">
+    <div style="background-image:url('/assets/cover.jpg');" class="absolute inset-0 bg-center bg-cover bg-fixed"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-purple-900/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-base-bg via-transparent to-transparent"></div>
 
-    <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16">
-      <div class="grid md:grid-cols-[1.2fr,0.8fr] gap-8 items-center">
-        <div class="fade">
-          <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-white">Matthew W. Brandenburg</h1>
-          <p class="mt-3 text-base text-slate-200">Mechanical Engineering @ Lamar University · ASME · AIAA · Robotic Cardinals · LUNAR Vehicle Design Team</p>
-          <p class="mt-6 text-base leading-relaxed text-slate-100/90 max-w-prose">
-            Hi, I’m Matthew Brandenburg — a mechanical engineering student at Lamar University focused on efficient design and practical innovation. I build things that move, fly, and inspire, while learning through collaboration and real-world engineering.
+    <div class="relative mx-auto max-w-6xl px-6 py-20 w-full">
+      <div class="grid md:grid-cols-[1.3fr,0.7fr] gap-12 items-center">
+        <div class="fade order-2 md:order-1">
+          <div class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur text-sm text-blue-300 mb-6 border border-white/20">
+            ✨ Mechanical Engineering Student
+          </div>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white">
+            Matthew W.<br/><span class="gradient-text">Brandenburg</span>
+          </h1>
+          <p class="mt-6 text-lg md:text-xl text-slate-300 font-medium">
+            Lamar University · ASME · AIAA · Robotic Cardinals · LUNAR
           </p>
-          <div class="mt-6 flex gap-3">
-            <a href="#resume" class="px-4 py-2 rounded-xl bg-white text-black font-medium hover:opacity-90">View Resume</a>
-            <a href="#projects" class="px-4 py-2 rounded-xl border border-white/60 text-white hover:border-white">Projects</a>
+          <p class="mt-6 text-base md:text-lg leading-relaxed text-slate-400 max-w-xl">
+            Hi, I'm Matthew — a mechanical engineering student focused on efficient design and practical innovation. I build things that move, fly, and inspire.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#resume" class="group px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2">
+              View Resume
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#projects" class="px-6 py-3 rounded-full border-2 border-white/30 text-white font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300">
+              View Projects
+            </a>
           </div>
         </div>
 
-        <div class="fade">
-          <div class="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur shadow-soft border border-white/20">
-            <img src="/assets/profile.jpg" alt="Portrait" class="w-full h-64 md:h-80 object-cover"/>
-            <div class="absolute bottom-3 right-3 text-xs text-white/90 bg-black/50 px-2 py-1 rounded">Beaumont, TX · CDT</div>
+        <div class="fade-delay-1 order-1 md:order-2">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+            <div class="relative overflow-hidden rounded-3xl bg-base-card shadow-2xl">
+              <img src="/assets/profile.jpg" alt="Matthew Brandenburg Portrait" class="w-full h-72 md:h-96 object-cover img-hover"/>
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="flex items-center gap-2 text-sm text-white/90">
+                  <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                  Beaumont, TX · Available for Internships
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 fade-delay-2 hidden md:flex">
+        <a href="#about" class="flex flex-col items-center gap-2 text-white/60 hover:text-white/90 transition-colors">
+          <span class="text-xs tracking-wider uppercase">Scroll</span>
+          <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced About Section -->
+  <section id="about" class="mx-auto max-w-6xl px-6 py-20">
+    <h2 class="text-2xl md:text-3xl font-bold section-title">About Me</h2>
+    <div class="mt-10 grid md:grid-cols-2 gap-10">
+      <div>
+        <p class="text-lg text-base-text/90 leading-relaxed">
+          Mechanical Engineering student targeting internships in aerospace and advanced manufacturing. Comfortable with SolidWorks, AutoCAD, FEA basics, and 3D printing.
+        </p>
+        <p class="mt-4 text-base text-base-dim leading-relaxed">
+          Passionate about designing efficient systems that solve real-world problems. Always eager to learn and collaborate with fellow engineers.
+        </p>
+      </div>
+      <div class="space-y-4">
+        <a href="mailto:mattbburg@outlook.com" class="flex items-center gap-4 p-4 rounded-2xl bg-base-card border border-base-ring/40 hover:border-blue-500/50 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm text-base-dim">Email</div>
+            <div class="text-base-text group-hover:text-blue-400 transition-colors">mattbburg@outlook.com</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/matthew-brandenburg-944b4a379/" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-2xl bg-base-card border border-base-ring/40 hover:border-blue-500/50 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm text-base-dim">LinkedIn</div>
+            <div class="text-base-text group-hover:text-blue-400 transition-colors">Connect with me</div>
+          </div>
+        </a>
+        <a href="https://github.com/CashDesigner" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-2xl bg-base-card border border-base-ring/40 hover:border-blue-500/50 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm text-base-dim">GitHub</div>
+            <div class="text-base-text group-hover:text-blue-400 transition-colors">@CashDesigner</div>
+          </div>
+        </a>
+        <a href="/assets/Matthew_Brandenburg_Resume.pdf" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-2xl bg-base-card border border-base-ring/40 hover:border-blue-500/50 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm text-base-dim">Resume</div>
+            <div class="text-base-text group-hover:text-blue-400 transition-colors">Download PDF</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Resume Section -->
+  <section id="resume" class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent"></div>
+    <div class="relative mx-auto max-w-6xl px-6">
+      <h2 class="text-2xl md:text-3xl font-bold section-title">Resume Snapshot</h2>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <article class="rounded-3xl border border-base-ring/40 bg-base-card p-6 shadow-soft hover-lift card-glow">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold">Education</h3>
+          <div class="mt-4 space-y-3">
+            <div>
+              <div class="text-base-text font-medium">Lamar University</div>
+              <div class="text-sm text-base-dim">B.S. Mechanical Engineering</div>
+              <div class="text-sm text-blue-400 mt-1">2025–2029</div>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Academic Excellence</span>
+              <span class="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Regents Scholar</span>
+            </div>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-base-ring/40 bg-base-card p-6 shadow-soft hover-lift card-glow">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold">Core Skills</h3>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="skill-tag px-3 py-1.5 text-sm rounded-full bg-base-ring/30 text-base-dim cursor-default">SolidWorks</span>
+            <span class="skill-tag px-3 py-1.5 text-sm rounded-full bg-base-ring/30 text-base-dim cursor-default">AutoCAD</span>
+            <span class="skill-tag px-3 py-1.5 text-sm rounded-full bg-base-ring/30 text-base-dim cursor-default">3D Printing</span>
+            <span class="skill-tag px-3 py-1.5 text-sm rounded-full bg-base-ring/30 text-base-dim cursor-default">FEA</span>
+            <span class="skill-tag px-3 py-1.5 text-sm rounded-full bg-base-ring/30 text-base-dim cursor-default">CNC</span>
+            <span class="skill-tag px-3 py-1.5 text-sm rounded-full bg-base-ring/30 text-base-dim cursor-default">MS Office</span>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-base-ring/40 bg-base-card p-6 shadow-soft hover-lift card-glow">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold">Certifications</h3>
+          <div class="mt-4 space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-green-400"></span>
+              <div>
+                <div class="text-base-text text-sm">AutoCAD Certified</div>
+                <div class="text-xs text-base-dim">Feb 2025</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+              <div>
+                <div class="text-base-text text-sm">Microsoft Office Specialist</div>
+                <div class="text-xs text-base-dim">2024</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+              <div>
+                <div class="text-base-text text-sm">TABC</div>
+                <div class="text-xs text-base-dim">Expires 2027</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Projects Section -->
+  <section id="projects" class="mx-auto max-w-6xl px-6 py-20">
+    <h2 class="text-2xl md:text-3xl font-bold section-title">Selected Projects</h2>
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <article class="group relative rounded-3xl border border-base-ring/40 bg-base-card overflow-hidden hover-lift">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative p-6">
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="px-3 py-1 text-xs rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">Aerospace</span>
+          </div>
+          <h3 class="mt-4 text-xl font-bold group-hover:text-blue-400 transition-colors">Supersonic Boat-Tail & Thrust Plate</h3>
+          <p class="mt-3 text-base-dim leading-relaxed">Designed 5.13" OD tapered boat-tail and 5" thrust plate for student rocket; planned Type II anodizing for enhanced durability.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="px-2 py-1 text-xs rounded bg-base-ring/30 text-base-dim">SolidWorks</span>
+            <span class="px-2 py-1 text-xs rounded bg-base-ring/30 text-base-dim">Anodizing</span>
+            <span class="px-2 py-1 text-xs rounded bg-base-ring/30 text-base-dim">Rocketry</span>
+          </div>
+        </div>
+      </article>
+      <article class="group relative rounded-3xl border border-base-ring/40 bg-base-card overflow-hidden hover-lift">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative p-6">
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <span class="px-3 py-1 text-xs rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Electronics</span>
+          </div>
+          <h3 class="mt-4 text-xl font-bold group-hover:text-blue-400 transition-colors">Transonic Tracking Ground Station</h3>
+          <p class="mt-3 text-base-dim leading-relaxed">Prototype for fieldable data capture and visualization system for tracking high-speed objects in real-time.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="px-2 py-1 text-xs rounded bg-base-ring/30 text-base-dim">Data Systems</span>
+            <span class="px-2 py-1 text-xs rounded bg-base-ring/30 text-base-dim">Tracking</span>
+            <span class="px-2 py-1 text-xs rounded bg-base-ring/30 text-base-dim">Visualization</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Enhanced Research Section -->
+  <section id="research" class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent"></div>
+    <div class="relative mx-auto max-w-6xl px-6">
+      <h2 class="text-2xl md:text-3xl font-bold section-title">Research & Writing</h2>
+      <div class="mt-10">
+        <article class="group relative rounded-3xl border border-base-ring/40 bg-base-card overflow-hidden hover-lift">
+          <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Research Paper</span>
+                  <span class="text-sm text-base-dim">2025</span>
+                </div>
+                <h3 class="text-xl font-bold group-hover:text-blue-400 transition-colors">Anodizing 6061-T6: Budget and Process Notes</h3>
+                <p class="mt-3 text-base-dim leading-relaxed max-w-2xl">Type II sulfuric process summary, safety protocols, and cost modeling for small rocket hardware. A comprehensive guide for student teams on budget-friendly anodizing solutions.</p>
+              </div>
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Involvement Section -->
+  <section id="involvement" class="mx-auto max-w-6xl px-6 py-20">
+    <h2 class="text-2xl md:text-3xl font-bold section-title">Leadership & Involvement</h2>
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <div class="group rounded-3xl border border-base-ring/40 bg-base-card p-6 hover-lift card-glow text-center">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="text-2xl font-bold text-white">A</span>
+        </div>
+        <h3 class="text-lg font-bold">ASME</h3>
+        <p class="mt-2 text-sm text-base-dim">American Society of Mechanical Engineers</p>
+        <div class="mt-3 inline-block px-3 py-1 text-xs rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Member · 2025–present</div>
+      </div>
+      <div class="group rounded-3xl border border-base-ring/40 bg-base-card p-6 hover-lift card-glow text-center">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="text-2xl font-bold text-white">A</span>
+        </div>
+        <h3 class="text-lg font-bold">AIAA</h3>
+        <p class="mt-2 text-sm text-base-dim">American Institute of Aeronautics and Astronautics</p>
+        <div class="mt-3 inline-block px-3 py-1 text-xs rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Member · 2025–present</div>
+      </div>
+      <div class="group rounded-3xl border border-base-ring/40 bg-base-card p-6 hover-lift card-glow text-center">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold">Robotic Cardinals / LUNAR</h3>
+        <p class="mt-2 text-sm text-base-dim">Vehicle Design Team</p>
+        <div class="mt-3 inline-block px-3 py-1 text-xs rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Member · 2025–present</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Gallery Section -->
+  <section id="gallery" class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent"></div>
+    <div class="relative mx-auto max-w-6xl px-6">
+      <h2 class="text-2xl md:text-3xl font-bold section-title">Image Gallery</h2>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border border-base-ring/40">
+          <img src="/assets/gallery/gallery-1.png" alt="Project image 1" class="w-full h-full object-cover img-hover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="text-sm text-white font-medium">Project View</span>
+          </div>
+        </div>
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border border-base-ring/40">
+          <img src="/assets/gallery/gallery-2.jpg" alt="Project image 2" class="w-full h-full object-cover img-hover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="text-sm text-white font-medium">Project View</span>
+          </div>
+        </div>
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border border-base-ring/40">
+          <img src="/assets/gallery/gallery-3.jpg" alt="Project image 3" class="w-full h-full object-cover img-hover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="text-sm text-white font-medium">Project View</span>
+          </div>
+        </div>
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border border-base-ring/40">
+          <img src="/assets/gallery/gallery-4.jpg" alt="Project image 4" class="w-full h-full object-cover img-hover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="text-sm text-white font-medium">Project View</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">About</h2>
-    <div class="mt-4 grid md:grid-cols-2 gap-6">
-      <p class="text-base text-base-text/90 leading-relaxed">
-        Mechanical Engineering student targeting internships in aerospace and advanced manufacturing. Comfortable with SolidWorks, AutoCAD, FEA basics, and 3D printing.
-      </p>
-      <ul class="text-sm text-base-dim space-y-2">
-        <li><span class="text-base-text">Email:</span> <a class="underline hover:no-underline" href="mailto:mattbburg@outlook.com">mattbburg@outlook.com</a></li>
-        <li><span class="text-base-text">LinkedIn:</span> <a class="underline" href="https://www.linkedin.com/in/matthew-brandenburg-944b4a379/" target="_blank" rel="noopener">https://www.linkedin.com/in/matthew-brandenburg-944b4a379/</a></li>
-        <li><span class="text-base-text">GitHub:</span> <a class="underline" href="https://github.com/CashDesigner" target="_blank" rel="noopener">https://github.com/CashDesigner</a></li>
-        <li><span class="text-base-text">Resume PDF:</span> <a class="underline" href="/assets/Matthew_Brandenburg_Resume.pdf" target="_blank" rel="noopener">download</a></li>
-      </ul>
+  <!-- Enhanced Contact Section -->
+  <section id="contact" class="mx-auto max-w-6xl px-6 py-20">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold">Get In Touch</h2>
+      <p class="mt-4 text-base-dim max-w-lg mx-auto">Interested in collaborating or have a question? Feel free to reach out through any of these channels.</p>
     </div>
-  </section>
-
-  <section id="resume" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Resume Snapshot</h2>
-    <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Education</h3>
-        <ul class="mt-3 text-sm text-base-dim space-y-2">
-          <li>
-            <div class="text-base-text">Lamar University — B.S. Mechanical Engineering</div>
-            <div>2025–2029 · Academic Excellence Scholars · Regents Scholarship</div>
-          </li>
-        </ul>
-      </article>
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Core Skills</h3>
-        <ul class="mt-3 text-sm text-base-dim grid grid-cols-2 gap-2">
-          <li>SolidWorks</li><li>AutoCAD</li><li>3D Printing</li><li>FEA basics</li><li>CNC basics</li><li>Office</li>
-        </ul>
-      </article>
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Certifications</h3>
-        <ul class="mt-3 text-sm text-base-dim space-y-2">
-          <li>AutoCAD Certified — Feb 2025</li>
-          <li>Microsoft Office Specialist — 2024</li>
-          <li>TABC — exp 2027</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="projects" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Selected Projects</h2>
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Supersonic Boat-Tail & Thrust Plate</h3>
-        <p class="mt-2 text-sm text-base-dim">Designed 5.13&quot; OD tapered boat-tail and 5&quot; thrust plate for student rocket; planned Type II anodizing.</p>
-      </article>
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Transonic Tracking Ground Station</h3>
-        <p class="mt-2 text-sm text-base-dim">Prototype for fieldable data capture and visualization.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="research" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Research & Writing</h2>
-    <ul class="mt-4 space-y-4">
-      <li class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <div class="flex items-baseline justify-between gap-4">
-          <h3 class="font-semibold">Anodizing 6061-T6: Budget and Process Notes</h3>
-          <span class="text-xs text-base-dim">2025</span>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a class="group relative rounded-3xl border border-base-ring/40 bg-base-card p-6 hover-lift card-glow text-center" href="mailto:mattbburg@outlook.com">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
-        <p class="mt-2 text-sm text-base-dim">Type II sulfuric process summary, safety, and cost modeling for small rocket hardware.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section id="involvement" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Leadership & Involvement</h2>
-    <div class="mt-4 grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft"><h3 class="font-semibold">ASME</h3><p class="mt-1 text-sm text-base-dim">Member · 2025–present</p></div>
-      <div class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft"><h3 class="font-semibold">AIAA</h3><p class="mt-1 text-sm text-base-dim">Member · 2025–present</p></div>
-      <div class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft"><h3 class="font-semibold">Robotic Cardinals / LUNAR</h3><p class="mt-1 text-sm text-base-dim">Vehicle Design Team · 2025–present</p></div>
-    </div>
-  </section>
-
-  <section id="gallery" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Image Gallery</h2>
-    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
-      <img src="/assets/gallery/gallery-1.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-      <img src="/assets/gallery/gallery-2.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-      <img src="/assets/gallery/gallery-3.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-      <img src="/assets/gallery/gallery-4.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-    </div>
-  </section>
-
-  <section id="contact" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Contact</h2>
-    <div class="mt-4 grid md:grid-cols-3 gap-6">
-      <a class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft hover:border-base-text/60" href="mailto:mattbburg@outlook.com">
-        <div class="font-semibold">Email</div><div class="text-sm text-base-dim">mattbburg@outlook.com</div>
+        <div class="font-bold text-lg group-hover:text-blue-400 transition-colors">Email</div>
+        <div class="text-sm text-base-dim mt-1">mattbburg@outlook.com</div>
       </a>
-      <a class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft hover:border-base-text/60" href="https://www.linkedin.com/in/matthew-brandenburg-944b4a379/" target="_blank" rel="noopener">
-        <div class="font-semibold">LinkedIn</div><div class="text-sm text-base-dim">https://www.linkedin.com/in/matthew-brandenburg-944b4a379/</div>
+      <a class="group relative rounded-3xl border border-base-ring/40 bg-base-card p-6 hover-lift card-glow text-center" href="https://www.linkedin.com/in/matthew-brandenburg-944b4a379/" target="_blank" rel="noopener">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="font-bold text-lg group-hover:text-blue-400 transition-colors">LinkedIn</div>
+        <div class="text-sm text-base-dim mt-1">Connect with me</div>
       </a>
-      <a class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft hover:border-base-text/60" href="https://github.com/CashDesigner" target="_blank" rel="noopener">
-        <div class="font-semibold">GitHub</div><div class="text-sm text-base-dim">https://github.com/CashDesigner</div>
+      <a class="group relative rounded-3xl border border-base-ring/40 bg-base-card p-6 hover-lift card-glow text-center" href="https://github.com/CashDesigner" target="_blank" rel="noopener">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </div>
+        <div class="font-bold text-lg group-hover:text-blue-400 transition-colors">GitHub</div>
+        <div class="text-sm text-base-dim mt-1">@CashDesigner</div>
       </a>
     </div>
   </section>
 
-  <footer class="mx-auto max-w-6xl px-4 py-10 text-xs text-base-dim border-t border-base-ring/40">
-    <div class="flex items-center justify-between">
-      <p>© <span id="year"></span> Matthew W. Brandenburg</p>
-      <p>Built with HTML + Tailwind.</p>
+  <!-- Enhanced Footer -->
+  <footer class="border-t border-base-ring/40">
+    <div class="mx-auto max-w-6xl px-6 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <span class="text-xl font-bold gradient-text">MWB</span>
+          <span class="text-sm text-base-dim">© <span id="year"></span> Matthew W. Brandenburg</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="mailto:mattbburg@outlook.com" class="text-base-dim hover:text-base-text transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/matthew-brandenburg-944b4a379/" target="_blank" rel="noopener" class="text-base-dim hover:text-base-text transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://github.com/CashDesigner" target="_blank" rel="noopener" class="text-base-dim hover:text-base-text transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+        <p class="text-sm text-base-dim">Built with HTML + Tailwind</p>
+      </div>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
