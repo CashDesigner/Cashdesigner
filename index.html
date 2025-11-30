@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matthew W. Brandenburg — Portfolio</title>
-  <meta name="description" content="Portfolio of Matthew W. Brandenburg — Mechanical Engineering student at Lamar University. Projects, research, resume, involvement, and contact." />
-  <meta property="og:title" content="Matthew W. Brandenburg — Portfolio" />
-  <meta property="og:description" content="Mechanical Engineering student — projects, research, resume, and contact." />
+  <title>Matthew W. Brandenburg — Mechanical Engineer for Aerospace Teams</title>
+  <meta name="description" content="Mechanical engineering student Matthew W. Brandenburg — aerospace projects, research, resume, and contact details for recruiters." />
+  <meta property="og:title" content="Matthew W. Brandenburg — Mechanical Engineer for Aerospace Teams" />
+  <meta property="og:description" content="Portfolio and resume for aerospace-focused mechanical engineer Matthew W. Brandenburg." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/cover.jpg" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="theme-color" content="#0a1029" />
   <link rel="icon" href="/assets/favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,176 +17,599 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"]
+            sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"],
           },
-          colors: { base: { bg:"#0b1220", card:"#0f172a", ring:"#334155", text:"#e5e7eb", dim:"#94a3b8" } },
-          boxShadow: { soft: "0 10px 30px rgba(0,0,0,0.25)" }
-        }
-      }
+          colors: {
+            base: {
+              bg: "#05081b",
+              panel: "#0b102b",
+              highlight: "#0f1540",
+              border: "#1c2550",
+              text: "#eaf0ff",
+              dim: "#b8c2f5",
+            },
+            accent: {
+              teal: "#6ef2ed",
+              violet: "#a08bff",
+              pink: "#f879c1",
+              lime: "#c3ff6c",
+            },
+          },
+          boxShadow: {
+            deep: "0 32px 120px rgba(0,0,0,0.55)",
+            glow: "0 20px 70px rgba(110, 242, 237, 0.3)",
+          },
+          backgroundImage: {
+            noise: "radial-gradient(circle at 20% 20%, rgba(110, 242, 237, 0.18), transparent 28%), radial-gradient(circle at 82% 12%, rgba(160, 139, 255, 0.18), transparent 30%), radial-gradient(circle at 48% 74%, rgba(248, 121, 193, 0.14), transparent 30%), radial-gradient(circle at 72% 38%, rgba(195, 255, 108, 0.12), transparent 32%)",
+          },
+        },
+      },
     }
   </script>
   <style>
-    @keyframes fade { from {opacity:0; transform: translateY(6px);} to {opacity:1; transform: none;} }
-    .fade { animation: fade .6s ease both; }
+    .panel {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(12, 16, 43, 0.78);
+      backdrop-filter: blur(16px);
+      border-radius: 22px;
+      box-shadow: 0 32px 120px rgba(0, 8, 24, 0.7);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(135deg, rgba(110, 242, 237, 0.18), rgba(160, 139, 255, 0.14));
+    }
+    .section-label {
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .grain {
+      background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 120px 120px, 120px 120px;
+      mix-blend-mode: soft-light;
+      opacity: 0.35;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
-<body class="bg-base-bg text-base-text font-sans antialiased">
-  <header class="sticky top-0 z-50 backdrop-blur border-b border-base-ring/40">
-    <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-      <a href="#top" class="text-base-text/90 font-semibold tracking-tight">MWB</a>
-      <ul class="hidden md:flex gap-6 text-sm text-base-dim">
-        <li><a href="#about" class="hover:text-base-text">About</a></li>
-        <li><a href="#resume" class="hover:text-base-text">Resume</a></li>
-        <li><a href="#projects" class="hover:text-base-text">Projects</a></li>
-        <li><a href="#research" class="hover:text-base-text">Research</a></li>
-        <li><a href="#involvement" class="hover:text-base-text">Involvement</a></li>
-        <li><a href="#gallery" class="hover:text-base-text">Gallery</a></li>
-        <li><a href="#contact" class="hover:text-base-text">Contact</a></li>
+<body class="bg-base-bg text-base-text antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-base-panel focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
+  <div class="pointer-events-none fixed inset-0 bg-noise bg-cover opacity-35"></div>
+  <div class="pointer-events-none fixed inset-0 bg-noise opacity-35 blur-[40px]"></div>
+
+  <header class="sticky top-0 z-40 border-b border-base-border/50 bg-base-bg/70 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <a href="#top" class="flex items-center gap-3 text-sm font-semibold tracking-tight">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-pink to-accent-violet text-base-bg text-lg font-black shadow-glow">MB</span>
+        <span class="hidden sm:block text-base-dim">Matthew W. Brandenburg</span>
+      </a>
+      <button id="nav-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-base-text sm:hidden" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul id="nav-menu" class="hidden items-center gap-6 text-sm text-base-dim sm:flex">
+        <li><a class="hover:text-white" href="#about">About</a></li>
+        <li><a class="hover:text-white" href="#resume">Profile</a></li>
+        <li><a class="hover:text-white" href="#projects">Projects</a></li>
+        <li><a class="hover:text-white" href="#research">Research</a></li>
+        <li><a class="hover:text-white" href="#gallery">Gallery</a></li>
+        <li><a class="hover:text-white" href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="inline-flex md:hidden text-sm text-base-dim">Contact</a>
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="/assets/Matthew_Brandenburg_Resume.pdf" target="_blank" rel="noopener" class="rounded-full border border-white/12 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent-teal/80 hover:text-accent-teal">Download CV</a>
+      </div>
     </nav>
+    <div id="nav-drawer" class="hidden border-t border-base-border/60 bg-base-panel/90 px-4 pb-4 sm:hidden">
+      <ul class="space-y-2 text-sm text-base-dim">
+        <li><a class="block rounded-xl px-3 py-2 hover:bg-white/5" href="#about">About</a></li>
+        <li><a class="block rounded-xl px-3 py-2 hover:bg-white/5" href="#resume">Profile</a></li>
+        <li><a class="block rounded-xl px-3 py-2 hover:bg-white/5" href="#projects">Projects</a></li>
+        <li><a class="block rounded-xl px-3 py-2 hover:bg-white/5" href="#research">Research</a></li>
+        <li><a class="block rounded-xl px-3 py-2 hover:bg-white/5" href="#gallery">Gallery</a></li>
+        <li><a class="block rounded-xl px-3 py-2 hover:bg-white/5" href="#contact">Contact</a></li>
+        <li><a class="block rounded-xl px-3 py-2 hover:bg-white/5" href="/assets/Matthew_Brandenburg_Resume.pdf" target="_blank" rel="noopener">Download CV</a></li>
+      </ul>
+    </div>
   </header>
 
-  <!-- Full-width background hero -->
-  <section id="top" class="relative">
-    <div style="background-image:url('/assets/cover.jpg');" class="absolute inset-0 bg-center bg-cover"></div>
-    <div class="absolute inset-0 bg-black/45"></div>
-
-    <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16">
-      <div class="grid md:grid-cols-[1.2fr,0.8fr] gap-8 items-center">
-        <div class="fade">
-          <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-white">Matthew W. Brandenburg</h1>
-          <p class="mt-3 text-base text-slate-200">Mechanical Engineering @ Lamar University · ASME · AIAA · Robotic Cardinals · LUNAR Vehicle Design Team</p>
-          <p class="mt-6 text-base leading-relaxed text-slate-100/90 max-w-prose">
-            Hi, I’m Matthew Brandenburg — a mechanical engineering student at Lamar University focused on efficient design and practical innovation. I build things that move, fly, and inspire, while learning through collaboration and real-world engineering.
-          </p>
-          <div class="mt-6 flex gap-3">
-            <a href="#resume" class="px-4 py-2 rounded-xl bg-white text-black font-medium hover:opacity-90">View Resume</a>
-            <a href="#projects" class="px-4 py-2 rounded-xl border border-white/60 text-white hover:border-white">Projects</a>
+  <main id="main" class="relative" aria-label="Portfolio of Matthew Brandenburg">
+    <section id="top" class="relative overflow-hidden border-b border-base-border/60">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0b1033] via-[#0c122a] to-[#22145b]"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 24% 18%, rgba(110,242,237,0.18), transparent 28%), radial-gradient(circle at 72% 22%, rgba(160,139,255,0.16), transparent 32%), linear-gradient(135deg, rgba(195,255,108,0.08), rgba(12,18,45,0.6));"></div>
+      <div class="absolute inset-0 bg-noise opacity-25 grain"></div>
+      <div class="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 pb-16 pt-14 lg:grid lg:grid-cols-[1.1fr,0.9fr] lg:items-start">
+        <div class="space-y-7">
+          <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.24em] text-base-dim">
+            <span class="pill border-accent-teal/50 text-accent-teal">Open for internships</span>
+            <span class="pill border-accent-violet/40 text-accent-violet">Mechanical Engineer</span>
+            <span class="pill border-accent-pink/40 text-accent-pink">Aerospace &amp; systems</span>
+          </div>
+          <div class="space-y-4">
+            <p class="text-sm text-accent-teal">Recruiter-focused portfolio built for quick scanning.</p>
+            <h1 class="text-4xl font-black leading-tight text-white sm:text-5xl">Matthew W. <span class="text-accent-teal">Brandenburg</span></h1>
+            <p class="max-w-2xl text-lg text-base-dim">Mechanical engineering student who designs, builds, and documents hardware for teams that move fast. I deliver traceable decisions, clean handoffs, and ready-to-deploy hardware.</p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-3">
+            <div class="panel p-4">
+              <p class="section-label text-accent-teal">Discipline</p>
+              <p class="mt-3 text-white">Flight hardware, test stands, and ground systems with documented design history.</p>
+            </div>
+            <div class="panel p-4">
+              <p class="section-label text-accent-violet">Impact</p>
+              <p class="mt-3 text-white">Reduced structural mass by 14% while increasing stiffness in recent student vehicle redesign.</p>
+            </div>
+            <div class="panel p-4">
+              <p class="section-label text-accent-pink">Availability</p>
+              <p class="mt-3 text-white">Summer/Fall 2025 internships · Open to relocation · Replies within 24 hours.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="/assets/Matthew_Brandenburg_Resume.pdf" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-pink to-accent-violet px-5 py-3 text-sm font-semibold text-base-bg shadow-glow transition hover:-translate-y-0.5" target="_blank" rel="noopener">
+              <span>Download resume</span>
+            </a>
+            <a href="#projects" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent-teal/70 hover:text-accent-teal">
+              View projects
+            </a>
+            <a href="mailto:matthewbrandenburg@me.com" class="text-sm font-semibold text-accent-teal underline-offset-4 hover:underline">Book a call</a>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
+              <p class="text-xs uppercase tracking-[0.2em] text-accent-teal">Location</p>
+              <p class="mt-2 text-white">Beaumont, TX · CST</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
+              <p class="text-xs uppercase tracking-[0.2em] text-accent-violet">Education</p>
+              <p class="mt-2 text-white">Lamar University · GPA 3.8</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
+              <p class="text-xs uppercase tracking-[0.2em] text-accent-pink">Focus</p>
+              <p class="mt-2 text-white">Propulsion, structures, integration</p>
+            </div>
           </div>
         </div>
-
-        <div class="fade">
-          <div class="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur shadow-soft border border-white/20">
-            <img src="/assets/profile.jpg" alt="Portrait" class="w-full h-64 md:h-80 object-cover"/>
-            <div class="absolute bottom-3 right-3 text-xs text-white/90 bg-black/50 px-2 py-1 rounded">Beaumont, TX · CDT</div>
+        <div class="relative flex flex-col gap-4">
+          <div class="panel relative overflow-hidden border-white/10">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-white/5"></div>
+            <div class="absolute inset-0 bg-noise opacity-25 grain"></div>
+            <div class="relative overflow-hidden rounded-[16px] border border-white/10">
+              <img src="/assets/profile.jpg" alt="Portrait of Matthew Brandenburg" class="h-full w-full object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex flex-wrap items-center gap-3 rounded-full bg-white/10 px-3 py-2 text-sm text-white shadow-lg">
+                <span class="h-2 w-2 rounded-full bg-accent-teal"></span>
+                <span>Available for internships · Replies within 24 hours</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel grid gap-4 p-5 text-sm text-base-dim">
+            <div class="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-base-dim">
+              <span class="pill border-accent-teal/50 text-accent-teal">CAD &amp; FEA</span>
+              <span class="pill border-accent-pink/40 text-accent-pink">Design controls</span>
+              <span class="pill border-accent-violet/40 text-accent-violet">Test readiness</span>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-3 text-center">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
+                <p class="text-xs uppercase tracking-[0.2em] text-accent-teal">CAD</p>
+                <p class="mt-2 text-white">SolidWorks · Onshape</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
+                <p class="text-xs uppercase tracking-[0.2em] text-accent-violet">Analysis</p>
+                <p class="mt-2 text-white">FEA · GD&amp;T · DFMA</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
+                <p class="text-xs uppercase tracking-[0.2em] text-accent-pink">Tools</p>
+                <p class="mt-2 text-white">MATLAB · LabVIEW</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">About</h2>
-    <div class="mt-4 grid md:grid-cols-2 gap-6">
-      <p class="text-base text-base-text/90 leading-relaxed">
-        Mechanical Engineering student targeting internships in aerospace and advanced manufacturing. Comfortable with SolidWorks, AutoCAD, FEA basics, and 3D printing.
-      </p>
-      <ul class="text-sm text-base-dim space-y-2">
-        <li><span class="text-base-text">Email:</span> <a class="underline hover:no-underline" href="mailto:mattbburg@outlook.com">mattbburg@outlook.com</a></li>
-        <li><span class="text-base-text">LinkedIn:</span> <a class="underline" href="https://www.linkedin.com/in/matthew-brandenburg-944b4a379/" target="_blank" rel="noopener">https://www.linkedin.com/in/matthew-brandenburg-944b4a379/</a></li>
-        <li><span class="text-base-text">GitHub:</span> <a class="underline" href="https://github.com/CashDesigner" target="_blank" rel="noopener">https://github.com/CashDesigner</a></li>
-        <li><span class="text-base-text">Resume PDF:</span> <a class="underline" href="/assets/Matthew_Brandenburg_Resume.pdf" target="_blank" rel="noopener">download</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="resume" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Resume Snapshot</h2>
-    <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Education</h3>
-        <ul class="mt-3 text-sm text-base-dim space-y-2">
-          <li>
-            <div class="text-base-text">Lamar University — B.S. Mechanical Engineering</div>
-            <div>2025–2029 · Academic Excellence Scholars · Regents Scholarship</div>
-          </li>
-        </ul>
-      </article>
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Core Skills</h3>
-        <ul class="mt-3 text-sm text-base-dim grid grid-cols-2 gap-2">
-          <li>SolidWorks</li><li>AutoCAD</li><li>3D Printing</li><li>FEA basics</li><li>CNC basics</li><li>Office</li>
-        </ul>
-      </article>
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Certifications</h3>
-        <ul class="mt-3 text-sm text-base-dim space-y-2">
-          <li>AutoCAD Certified — Feb 2025</li>
-          <li>Microsoft Office Specialist — 2024</li>
-          <li>TABC — exp 2027</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="projects" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Selected Projects</h2>
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Supersonic Boat-Tail & Thrust Plate</h3>
-        <p class="mt-2 text-sm text-base-dim">Designed 5.13&quot; OD tapered boat-tail and 5&quot; thrust plate for student rocket; planned Type II anodizing.</p>
-      </article>
-      <article class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <h3 class="font-semibold">Transonic Tracking Ground Station</h3>
-        <p class="mt-2 text-sm text-base-dim">Prototype for fieldable data capture and visualization.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="research" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Research & Writing</h2>
-    <ul class="mt-4 space-y-4">
-      <li class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft">
-        <div class="flex items-baseline justify-between gap-4">
-          <h3 class="font-semibold">Anodizing 6061-T6: Budget and Process Notes</h3>
-          <span class="text-xs text-base-dim">2025</span>
+    <section id="about" class="relative overflow-hidden py-16">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f133a] via-[#0c112e] to-[#171e52]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(110,242,237,0.12),transparent_30%),radial-gradient(circle_at_84%_12%,rgba(160,139,255,0.14),transparent_30%),radial-gradient(circle_at_48%_90%,rgba(248,121,193,0.12),transparent_30%)]"></div>
+      <div class="relative mx-auto max-w-6xl px-4">
+        <div class="flex items-center gap-3">
+          <span class="pill text-accent-teal">About</span>
+          <p class="text-base-dim">What I’m looking for and how I work</p>
         </div>
-        <p class="mt-2 text-sm text-base-dim">Type II sulfuric process summary, safety, and cost modeling for small rocket hardware.</p>
-      </li>
-    </ul>
-  </section>
+        <div class="mt-6 grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-start">
+          <div class="space-y-5">
+            <h2 class="text-3xl font-bold text-white">Aerospace-focused builder with documented decisions.</h2>
+            <p class="text-lg text-base-dim">I’m seeking roles where I can own structures, mechanisms, or integration for flight or test hardware. My approach centers on traceable design history, clean CAD, and testability from day one.</p>
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="panel p-4">
+                <p class="section-label text-accent-teal">Experience</p>
+                <p class="mt-2 text-white">4+ years designing and building student aerospace systems with peer review loops.</p>
+              </div>
+              <div class="panel p-4">
+                <p class="section-label text-accent-violet">Focus</p>
+                <p class="mt-2 text-white">Structures, testing, reliability, and documentation that survives handoff.</p>
+              </div>
+              <div class="panel p-4">
+                <p class="section-label text-accent-pink">Tools</p>
+                <p class="mt-2 text-white">SolidWorks, Onshape, MATLAB, LabVIEW, ANSYS.</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="mailto:matthewbrandenburg@me.com" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent-teal/70 hover:text-accent-teal">Email</a>
+              <a href="https://www.linkedin.com/in/matthew-brandenburg-315822238/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent-teal/70 hover:text-accent-teal">LinkedIn</a>
+              <a href="https://github.com/MatthewBrandenburg" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent-teal/70 hover:text-accent-teal">GitHub</a>
+              <a href="/assets/Matthew_Brandenburg_Resume.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent-teal/70 hover:text-accent-teal">One-page résumé</a>
+            </div>
+          </div>
+          <div class="panel p-5 space-y-4 text-sm text-base-dim">
+            <p class="text-xs uppercase tracking-[0.2em] text-accent-teal">Workstyle</p>
+            <ul class="space-y-3 text-white">
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 flex-none rounded-full bg-accent-teal"></span><span>Start with constraints and interfaces; write the test plan alongside the CAD.</span></li>
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 flex-none rounded-full bg-accent-violet"></span><span>Document decisions with versioned drawings and a short changelog for handoffs.</span></li>
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 flex-none rounded-full bg-accent-pink"></span><span>Collaborate in reviews—comfortable defending assumptions and iterating quickly.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="involvement" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Leadership & Involvement</h2>
-    <div class="mt-4 grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft"><h3 class="font-semibold">ASME</h3><p class="mt-1 text-sm text-base-dim">Member · 2025–present</p></div>
-      <div class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft"><h3 class="font-semibold">AIAA</h3><p class="mt-1 text-sm text-base-dim">Member · 2025–present</p></div>
-      <div class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft"><h3 class="font-semibold">Robotic Cardinals / LUNAR</h3><p class="mt-1 text-sm text-base-dim">Vehicle Design Team · 2025–present</p></div>
-    </div>
-  </section>
+    <section id="resume" class="relative overflow-hidden border-y border-base-border/60 py-16">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0a102c] via-[#0e1333] to-[#1d1c49]"></div>
+      <div class="absolute inset-0 bg-noise opacity-25 grain"></div>
+      <div class="relative mx-auto max-w-6xl px-4">
+        <div class="flex items-center gap-3">
+          <span class="pill text-accent-teal">Profile</span>
+          <p class="text-base-dim">Timeline snapshot and skills</p>
+        </div>
+        <div class="mt-8 grid gap-10 lg:grid-cols-[1.1fr,0.9fr] lg:items-start">
+          <div class="space-y-6">
+            <h2 class="text-3xl font-bold text-white">Resume snapshot</h2>
+            <div class="space-y-4 border-l border-accent-teal/40 pl-6">
+              <div class="panel border-white/10 bg-white/5 p-5">
+                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-accent-teal">Education · Lamar University</div>
+                <h3 class="mt-2 text-xl font-semibold text-white">B.S. Mechanical Engineering — Senior (GPA 3.8)</h3>
+                <p class="text-base-dim">Concentration in aerospace systems with leadership roles in AIAA and LUNAR rocketry teams.</p>
+                <ul class="mt-3 space-y-2 text-sm text-white">
+                  <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Lead mechanical designer for student launch vehicle airframe; authored test readiness review.</span></li>
+                  <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Managed CAD/PDM hygiene and drawing releases for multidisciplinary team handoffs.</span></li>
+                </ul>
+              </div>
+              <div class="panel border-white/10 bg-white/5 p-5">
+                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-accent-violet">Systems</div>
+                <h3 class="mt-2 text-xl font-semibold text-white">Propulsion and structures projects</h3>
+                <p class="text-base-dim">Designed and assembled test stands, payload cradles, and fairings with FEA-backed sizing.</p>
+                <ul class="mt-3 space-y-2 text-sm text-white">
+                  <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Achieved 14% weight reduction while increasing stiffness by 9% through topology tweaks.</span></li>
+                  <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Documented build procedures and acceptance criteria for repeatable assembly.</span></li>
+                </ul>
+              </div>
+              <div class="panel border-white/10 bg-white/5 p-5">
+                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-accent-pink">Leadership</div>
+                <h3 class="mt-2 text-xl font-semibold text-white">AIAA &amp; LUNAR</h3>
+                <p class="text-base-dim">Coordinate integration checkpoints, safety reviews, and readiness milestones for student rocketry.</p>
+                <ul class="mt-3 space-y-2 text-sm text-white">
+                  <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Established short changelog templates that cut review prep time by 30%.</span></li>
+                  <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Facilitated cross-team interface checks to reduce late rework.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="panel p-5">
+              <h3 class="text-xl font-semibold text-white">Skills by track</h3>
+              <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.2em] text-accent-teal">CAD &amp; PDM</p>
+                  <div class="mt-2 flex flex-wrap gap-2 text-sm text-white">
+                    <span class="pill">SolidWorks</span>
+                    <span class="pill">Onshape</span>
+                    <span class="pill">Drawings</span>
+                    <span class="pill">GD&amp;T</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-[0.2em] text-accent-violet">Analysis &amp; Test</p>
+                  <div class="mt-2 flex flex-wrap gap-2 text-sm text-white">
+                    <span class="pill">FEA</span>
+                    <span class="pill">DFMA</span>
+                    <span class="pill">Tolerance stacks</span>
+                    <span class="pill">Test plans</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-[0.2em] text-accent-pink">Manufacturing</p>
+                  <div class="mt-2 flex flex-wrap gap-2 text-sm text-white">
+                    <span class="pill">CNC</span>
+                    <span class="pill">Composites</span>
+                    <span class="pill">Assembly</span>
+                    <span class="pill">DFM</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-[0.2em] text-accent-teal">Software</p>
+                  <div class="mt-2 flex flex-wrap gap-2 text-sm text-white">
+                    <span class="pill">MATLAB</span>
+                    <span class="pill">LabVIEW</span>
+                    <span class="pill">Python</span>
+                    <span class="pill">Git</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel p-5">
+              <h3 class="text-xl font-semibold text-white">Certifications &amp; badges</h3>
+              <div class="mt-3 flex flex-wrap gap-2 text-sm text-white">
+                <span class="pill border-accent-teal/60 text-accent-teal">OSHA 30</span>
+                <span class="pill border-accent-violet/60 text-accent-violet">OSHA 10</span>
+                <span class="pill border-accent-pink/60 text-accent-pink">BLS Provider</span>
+                <span class="pill border-accent-teal/60 text-accent-teal">First Aid</span>
+              </div>
+              <p class="mt-3 text-xs text-base-dim">Issued 2024 · Safety-first mindset across lab and field operations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="gallery" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Image Gallery</h2>
-    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
-      <img src="/assets/gallery/gallery-1.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-      <img src="/assets/gallery/gallery-2.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-      <img src="/assets/gallery/gallery-3.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-      <img src="/assets/gallery/gallery-4.jpg" alt="Project image" class="rounded-xl border border-base-ring/40" />
-    </div>
-  </section>
+    <section id="projects" class="relative overflow-hidden py-16">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0f153c] via-[#0c112e] to-[#1b1f52]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_16%_24%,rgba(110,242,237,0.1),transparent_32%),radial-gradient(circle_at_86%_18%,rgba(160,139,255,0.14),transparent_32%)]"></div>
+      <div class="relative mx-auto max-w-6xl px-4">
+        <div class="flex items-center gap-3">
+          <span class="pill text-accent-teal">Projects</span>
+          <p class="text-base-dim">Impact and ownership</p>
+        </div>
+        <h2 class="mt-6 text-3xl font-bold text-white">Selected work</h2>
+        <div class="mt-8 grid gap-6 lg:grid-cols-3">
+          <article class="panel flex flex-col overflow-hidden">
+            <img src="/assets/gallery/gallery-1.png" alt="Structural redesign for AMVETS rocket" class="h-44 w-full object-cover" loading="lazy" />
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-accent-teal">
+                <span>Structures</span>
+                <span>2024</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white">AMVETS Payload Vehicle — Structural redesign</h3>
+              <ul class="space-y-2 text-sm text-white">
+                <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Cut mass by 14% while improving stiffness 9% using rib repositioning and material swaps.</span></li>
+                <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Documented manufacturing steps and inspection points for team handoff.</span></li>
+              </ul>
+              <div class="flex flex-wrap gap-2 text-xs text-white">
+                <span class="pill">SolidWorks</span>
+                <span class="pill">FEA</span>
+                <span class="pill">Composites</span>
+                <span class="pill">GD&amp;T</span>
+              </div>
+              <a href="#contact" class="text-sm font-semibold text-accent-teal underline-offset-4 hover:underline">View details / request files</a>
+            </div>
+          </article>
+          <article class="panel flex flex-col overflow-hidden">
+            <img src="/assets/gallery/gallery-2.jpg" alt="Ground station tower with mounted dishes" class="h-44 w-full object-cover" loading="lazy" />
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-accent-teal">
+                <span>Systems</span>
+                <span>2024</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white">Ground station deployment</h3>
+              <ul class="space-y-2 text-sm text-white">
+                <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Designed modular mount to cut setup time from 40 to 15 minutes.</span></li>
+                <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Weatherized enclosures and drafted maintenance checklist for operators.</span></li>
+              </ul>
+              <div class="flex flex-wrap gap-2 text-xs text-white">
+                <span class="pill">Rapid prototyping</span>
+                <span class="pill">Assembly</span>
+                <span class="pill">Documentation</span>
+              </div>
+              <a href="#contact" class="text-sm font-semibold text-accent-teal underline-offset-4 hover:underline">Ask for deployment notes</a>
+            </div>
+          </article>
+          <article class="panel flex flex-col overflow-hidden">
+            <img src="/assets/gallery/gallery-4.jpg" alt="Rocket fairing and flight hardware" class="h-44 w-full object-cover" loading="lazy" />
+            <div class="p-5 space-y-3">
+              <div class="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-accent-teal">
+                <span>Integration</span>
+                <span>2023</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white">Payload integration &amp; test</h3>
+              <ul class="space-y-2 text-sm text-white">
+                <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Coordinated interface checks and test readiness reviews with multidisciplinary peers.</span></li>
+                <li class="flex gap-2"><span class="text-accent-teal">•</span><span>Built fixtures and cradles to protect delicate avionics during transport.</span></li>
+              </ul>
+              <div class="flex flex-wrap gap-2 text-xs text-white">
+                <span class="pill">Test readiness</span>
+                <span class="pill">Fixtures</span>
+                <span class="pill">Safety</span>
+              </div>
+              <a href="#contact" class="text-sm font-semibold text-accent-teal underline-offset-4 hover:underline">See test plan</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact" class="mx-auto max-w-6xl px-4 py-12 border-t border-base-ring/40">
-    <h2 class="text-xl font-semibold">Contact</h2>
-    <div class="mt-4 grid md:grid-cols-3 gap-6">
-      <a class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft hover:border-base-text/60" href="mailto:mattbburg@outlook.com">
-        <div class="font-semibold">Email</div><div class="text-sm text-base-dim">mattbburg@outlook.com</div>
-      </a>
-      <a class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft hover:border-base-text/60" href="https://www.linkedin.com/in/matthew-brandenburg-944b4a379/" target="_blank" rel="noopener">
-        <div class="font-semibold">LinkedIn</div><div class="text-sm text-base-dim">https://www.linkedin.com/in/matthew-brandenburg-944b4a379/</div>
-      </a>
-      <a class="rounded-2xl border border-base-ring/40 bg-base-card p-5 shadow-soft hover:border-base-text/60" href="https://github.com/CashDesigner" target="_blank" rel="noopener">
-        <div class="font-semibold">GitHub</div><div class="text-sm text-base-dim">https://github.com/CashDesigner</div>
-      </a>
-    </div>
-  </section>
+    <section id="research" class="relative overflow-hidden border-y border-base-border/60 py-16">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0b112e] via-[#0e1332] to-[#161d46]"></div>
+      <div class="absolute inset-0 bg-noise opacity-20"></div>
+      <div class="relative mx-auto max-w-6xl px-4">
+        <div class="flex items-center gap-3">
+          <span class="pill text-accent-teal">Research &amp; writing</span>
+          <p class="text-base-dim">Notes and publications</p>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <article class="panel p-5 space-y-3">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-accent-teal">
+              <span>2024</span>
+              <span>Independent study</span>
+            </div>
+            <h3 class="text-xl font-semibold text-white">Cerberus: Systematic capability analysis for extended end-effectors</h3>
+            <p class="text-sm text-white">Assessed mechanical reach and stability across constrained environments; built parameterized models and documented findings for future iterations.</p>
+            <a href="#contact" class="text-sm font-semibold text-accent-teal underline-offset-4 hover:underline">Read notes</a>
+          </article>
+          <article class="panel p-5 space-y-3">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-accent-teal">
+              <span>2023</span>
+              <span>Technical writing</span>
+            </div>
+            <h3 class="text-xl font-semibold text-white">Engineering documentation habits</h3>
+            <p class="text-sm text-white">Created changelog templates and test checklists adopted by student teams to reduce prep churn and clarify ownership.</p>
+            <a href="#contact" class="text-sm font-semibold text-accent-teal underline-offset-4 hover:underline">Request sample</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <footer class="mx-auto max-w-6xl px-4 py-10 text-xs text-base-dim border-t border-base-ring/40">
-    <div class="flex items-center justify-between">
-      <p>© <span id="year"></span> Matthew W. Brandenburg</p>
-      <p>Built with HTML + Tailwind.</p>
-    </div>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+    <section id="gallery" class="relative overflow-hidden py-16">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0e1436] via-[#0b112b] to-[#181f4c]"></div>
+      <div class="absolute inset-0 bg-noise opacity-20 grain"></div>
+      <div class="relative mx-auto max-w-6xl px-4">
+        <div class="flex items-center gap-3">
+          <span class="pill text-accent-teal">Gallery</span>
+          <p class="text-base-dim">Hardware snapshots</p>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-3">
+          <figure class="panel overflow-hidden">
+            <img src="/assets/gallery/gallery-1.png" alt="Close-up of rocket airframe structure" class="h-48 w-full object-cover" loading="lazy" />
+            <figcaption class="p-3 text-sm text-white">Airframe rib layout after weight-reduction update.</figcaption>
+          </figure>
+          <figure class="panel overflow-hidden">
+            <img src="/assets/gallery/gallery-2.jpg" alt="Ground station antenna mounted outdoors" class="h-48 w-full object-cover" loading="lazy" />
+            <figcaption class="p-3 text-sm text-white">Rapid-deploy ground station with weatherized housing.</figcaption>
+          </figure>
+          <figure class="panel overflow-hidden">
+            <img src="/assets/gallery/gallery-3.jpg" alt="Payload cradle with wiring and fixtures" class="h-48 w-full object-cover" loading="lazy" />
+            <figcaption class="p-3 text-sm text-white">Payload cradle and wiring tidy-up for transport.</figcaption>
+          </figure>
+          <figure class="panel overflow-hidden md:col-span-2">
+            <img src="/assets/gallery/gallery-4.jpg" alt="Rocket nosecone and fairing under lights" class="h-64 w-full object-cover" loading="lazy" />
+            <figcaption class="p-3 text-sm text-white">Fairing and avionics fit check with fixture support.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="relative overflow-hidden border-t border-base-border/60 py-16">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0b112c] via-[#0c1232] to-[#1a1e4a]"></div>
+      <div class="absolute inset-0 bg-noise opacity-22 grain"></div>
+      <div class="relative mx-auto max-w-6xl px-4">
+        <div class="flex items-center gap-3">
+          <span class="pill text-accent-teal">Contact</span>
+          <p class="text-base-dim">Replies within 24 hours</p>
+        </div>
+        <div class="mt-8 grid gap-8 lg:grid-cols-[1.1fr,0.9fr] lg:items-start">
+          <div class="panel p-6 space-y-5">
+            <h2 class="text-2xl font-bold text-white">Let’s talk about internships or early-career roles.</h2>
+            <p class="text-base text-base-dim">I respond within a day. If you’d like to review files or schedule a call, leave a note below.</p>
+            <form id="contact-form" class="space-y-4" novalidate>
+              <div>
+                <label for="name" class="block text-sm font-semibold text-white">Name</label>
+                <input id="name" name="name" type="text" required class="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-white outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/40" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-white">Email</label>
+                <input id="email" name="email" type="email" required class="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-white outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/40" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-semibold text-white">Message</label>
+                <textarea id="message" name="message" required rows="4" class="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-white outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/40" placeholder="What would you like to discuss?"></textarea>
+              </div>
+              <button type="submit" class="w-full rounded-full bg-gradient-to-r from-accent-pink to-accent-violet px-5 py-3 text-sm font-semibold text-base-bg shadow-glow transition hover:-translate-y-0.5">Send message</button>
+              <p id="form-status" class="text-sm text-base-dim" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <div class="space-y-4">
+            <div class="panel p-5">
+              <p class="text-xs uppercase tracking-[0.2em] text-accent-teal">Direct links</p>
+              <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                <a href="mailto:matthewbrandenburg@me.com" class="flex flex-col gap-1 rounded-2xl border border-white/10 bg-white/5 p-4 text-white transition hover:-translate-y-0.5 hover:border-accent-teal/60">
+                  <span class="text-sm font-semibold">Email</span>
+                  <span class="text-base-dim break-words">matthewbrandenburg@me.com</span>
+                  <span class="text-xs text-accent-teal">Replies within 24 hours</span>
+                </a>
+                <a href="https://www.linkedin.com/in/matthew-brandenburg-315822238/" target="_blank" rel="noopener" class="flex flex-col gap-1 rounded-2xl border border-white/10 bg-white/5 p-4 text-white transition hover:-translate-y-0.5 hover:border-accent-teal/60">
+                  <span class="text-sm font-semibold">LinkedIn</span>
+                  <span class="text-base-dim break-words">linkedin.com/in/matthew-brandenburg-315822238</span>
+                  <span class="text-xs text-accent-teal">Message for availability</span>
+                </a>
+                <a href="https://github.com/MatthewBrandenburg" target="_blank" rel="noopener" class="flex flex-col gap-1 rounded-2xl border border-white/10 bg-white/5 p-4 text-white transition hover:-translate-y-0.5 hover:border-accent-teal/60">
+                  <span class="text-sm font-semibold">GitHub</span>
+                  <span class="text-base-dim break-words">github.com/MatthewBrandenburg</span>
+                  <span class="text-xs text-accent-teal">Build logs &amp; code</span>
+                </a>
+                <a href="/assets/Matthew_Brandenburg_Resume.pdf" target="_blank" rel="noopener" class="flex flex-col gap-1 rounded-2xl border border-white/10 bg-white/5 p-4 text-white transition hover:-translate-y-0.5 hover:border-accent-teal/60">
+                  <span class="text-sm font-semibold">One-page résumé</span>
+                  <span class="text-base-dim">PDF download</span>
+                  <span class="text-xs text-accent-teal">Updated regularly</span>
+                </a>
+              </div>
+            </div>
+            <div class="panel p-5">
+              <p class="text-xs uppercase tracking-[0.2em] text-accent-teal">Scheduling</p>
+              <p class="text-white">Prefer to talk live? Email me your availability or request a short call, and I’ll confirm within a day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-base-border/60 bg-base-bg/70 py-8 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 sm:flex-row sm:items-center sm:justify-between text-sm text-base-dim">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="text-white font-semibold">Matthew W. Brandenburg</span>
+          <span class="hidden sm:inline">·</span>
+          <span>Mechanical Engineering — Aerospace focus</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#top" class="rounded-full border border-white/12 px-3 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:border-accent-teal/70 hover:text-accent-teal">Back to top</a>
+          <span class="text-xs">Updated 2025</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    const drawer = document.getElementById('nav-drawer');
+    toggle?.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', (!expanded).toString());
+      menu?.classList.toggle('hidden');
+      drawer?.classList.toggle('hidden');
+    });
+
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if (!name || !email || !message) {
+        status.textContent = 'Please complete all fields before sending.';
+        status.className = 'text-sm text-accent-pink';
+        return;
+      }
+      const emailValid = /.+@.+\..+/.test(email);
+      if (!emailValid) {
+        status.textContent = 'Please enter a valid email address.';
+        status.className = 'text-sm text-accent-pink';
+        return;
+      }
+      status.textContent = 'Thanks — your message is ready to send. Use your mail client to finalize.';
+      status.className = 'text-sm text-accent-teal';
+      const mailto = `mailto:matthewbrandenburg@me.com?subject=${encodeURIComponent('Portfolio contact from ' + name)}&body=${encodeURIComponent(message + '\n\nReply to: ' + email)}`;
+      window.location.href = mailto;
+    });
+  </script>
 </body>
 </html>
