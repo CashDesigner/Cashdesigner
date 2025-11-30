@@ -134,7 +134,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('/assets/cover.jpg') center/cover no-repeat fixed;
+      background: url('/assets/cover.jpg') center/cover no-repeat;
     }
 
     .hero-overlay {
@@ -1054,7 +1054,7 @@
       <div class="footer-content">
         <div class="footer-brand">
           <span class="logo">M<span>.</span>Brandenburg</span>
-          <span>© 2025 Matthew W. Brandenburg</span>
+          <span id="copyright">© 2025 Matthew W. Brandenburg</span>
         </div>
         <div class="footer-links">
           <a href="mailto:mattbburg@outlook.com" title="Email">✉️</a>
@@ -1067,7 +1067,7 @@
   </footer>
 
   <script>
-    document.querySelector('.footer-brand span:last-child').textContent = `© ${new Date().getFullYear()} Matthew W. Brandenburg`;
+    document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} Matthew W. Brandenburg`;
   </script>
 </body>
 </html>
