@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Matthew W. Brandenburg</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Space Grotesk", "sans-serif"], mono: ["JetBrains Mono", "monospace"] },
+          colors: { page: "#050505", card: "#0f0f0f", accent: "#3b82f6", dim: "#a1a1aa", border: "#27272a" },
+          backgroundImage: { 'grid-pattern': "linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)" },
+          animation: { 'fade-in': 'fadeIn 0.6s ease-out forwards' },
+          keyframes: { fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } } }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #050505; color: #e5e7eb; }
+    .glass { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .bg-grid { background-size: 40px 40px; mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent); }
+    .card-hover:hover { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.2); }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-accent selection:text-white">
+
+  <!-- Background -->
+  <div class="fixed inset-0 z-0 pointer-events-none"><div class="absolute inset-0 bg-grid-pattern opacity-[0.07] bg-grid"></div></div>
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 px-4 py-4">
+    <div class="glass max-w-5xl mx-auto rounded-2xl px-6 py-3 shadow-2xl shadow-black/50 transition-all duration-300">
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="font-bold text-xl tracking-tight text-white flex items-center gap-2 group">
+          <span class="text-accent font-mono group-hover:animate-pulse">&lt;MWB /&gt;</span>
+        </a>
+        <ul class="hidden md:flex gap-8 text-sm font-medium text-dim">
+          <li><a href="about.html" class="text-white transition-colors">About</a></li>
+          <li><a href="resume.html" class="hover:text-accent transition-colors">Resume</a></li>
+          <li><a href="projects.html" class="hover:text-accent transition-colors">Projects</a></li>
+          <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="md:hidden text-accent p-1 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col gap-4 text-sm font-mono text-dim pb-2 border-t border-white/10 pt-4 animate-fade-in">
+        <a href="about.html" class="block hover:text-accent text-white">About</a>
+        <a href="resume.html" class="block hover:text-accent">Resume</a>
+        <a href="projects.html" class="block hover:text-accent">Projects</a>
+        <a href="contact.html" class="block hover:text-accent">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-20 max-w-4xl mx-auto px-4 relative z-10 animate-fade-in">
+    <!-- Header -->
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h1>
+
+    <!-- Bio with Image -->
+    <div class="flex flex-col md:flex-row gap-8 mb-12">
+        <div class="w-full md:w-1/3 aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 relative group">
+             <img src="assets/images/lamar-university.jpg" alt="Lamar University" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+        </div>
+        <div class="w-full md:w-2/3 glass p-8 rounded-2xl">
+          <p class="text-lg text-dim leading-relaxed">
+            I am a Mechanical Engineering student at <span class="text-white font-medium">Lamar University</span> with a deep passion for bridging the gap between theoretical models and physical reality. Currently serving as a Student Assistant at the Lamar Engineering Fabrication Lab, I spend my days managing industrial equipment, mentoring peers, and optimizing manufacturing workflows.
+          </p>
+          <p class="text-lg text-dim leading-relaxed mt-4">
+            My technical focus lies in <span class="text-accent">precision manufacturing</span>, <span class="text-accent">iterative design</span>, and <span class="text-accent">machine maintenance</span>. Whether it's designing complex parametric assemblies in SolidWorks or operating Haas CNC machines, I thrive on the challenge of making things work better, faster, and more efficiently.
+          </p>
+        </div>
+    </div>
+
+    <!-- Skills / Software -->
+    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+      <span class="w-8 h-[1px] bg-accent"></span> Programs & Software
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <div class="glass p-6 rounded-xl card-hover transition-all duration-300">
+        <h3 class="text-lg font-bold text-white mb-3">Design & CAD</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">SolidWorks</span>
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">AutoCAD</span>
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Fusion 360</span>
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Parametric Modeling</span>
+        </div>
+      </div>
+      <div class="glass p-6 rounded-xl card-hover transition-all duration-300">
+        <h3 class="text-lg font-bold text-white mb-3">Manufacturing & Tools</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">FDM Printing (Bambu/Qidi)</span>
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">SLA Resin</span>
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Haas CNC Operator</span>
+          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Fab Lab Safety</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications (Visual) -->
+    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span class="w-8 h-[1px] bg-accent"></span> Certifications
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div class="glass p-2 rounded-xl border border-white/10 group relative overflow-hidden">
+             <img src="assets/images/cnc-cert.jpg" alt="CNC Certification" class="w-full h-64 object-cover rounded-lg">
+             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                 <span class="text-white font-mono border border-accent px-4 py-2 rounded-full">CNC Certification</span>
+             </div>
+        </div>
+        <div class="glass p-2 rounded-xl border border-white/10 group relative overflow-hidden">
+             <img src="assets/images/cnc-cert-group.jpg" alt="Group Certification" class="w-full h-64 object-cover rounded-lg">
+             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                 <span class="text-white font-mono border border-accent px-4 py-2 rounded-full">Team Certification</span>
+             </div>
+        </div>
+    </div>
+
+    <!-- Honors -->
+    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+      <span class="w-8 h-[1px] bg-accent"></span> Honors & Awards
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="glass p-6 rounded-xl border-t-4 border-t-accent">
+        <h3 class="text-white font-bold text-xl mb-2">Academic Excellence Scholar</h3>
+        <p class="text-dim text-sm mb-4">Awarded for high school academic achievement.</p>
+        <div class="flex justify-between items-center text-xs font-mono">
+           <span class="text-accent bg-accent/10 px-2 py-1 rounded">Covers 40% Tuition</span>
+           <span class="text-dim">Sept 2025 - Present</span>
+        </div>
+      </div>
+      <div class="glass p-6 rounded-xl border-t-4 border-t-accent">
+        <h3 class="text-white font-bold text-xl mb-2">Giannopoulos Regents Scholarship</h3>
+        <p class="text-dim text-sm mb-4">Merit-based engineering scholarship.</p>
+        <div class="flex justify-between items-center text-xs font-mono">
+           <span class="text-accent bg-accent/10 px-2 py-1 rounded">Covers 60% Tuition</span>
+           <span class="text-dim">Sept 2025 - Present</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-8 text-center text-dim text-xs font-mono">
+    <div class="flex flex-col items-center gap-2">
+        <button onclick="copyEmail(this)" class="hover:text-accent transition-colors">
+            Copy Email Address
+        </button>
+        <p>© 2029 Matthew W. Brandenburg</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyEmail(btn) {
+      const email = atob('bWF0dGJidXJnQG91dGxvb2suY29t');
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = "Copied!";
+        btn.classList.add("text-green-500");
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.classList.remove("text-green-500");
+        }, 2000);
+      });
+    }
+
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if(btn && menu) {
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    }
+  </script>
+</body>
+</html>
