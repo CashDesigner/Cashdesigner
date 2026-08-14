@@ -1,206 +1,122 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mechanical engineering portfolio of Matthew Brandenburg, focused on design, manufacturing, aerospace systems, and technical leadership.">
   <title>Matthew W. Brandenburg — Mechanical Engineering</title>
-  <meta name="description" content="Portfolio of Matthew W. Brandenburg — Mechanical Engineering student at Lamar University." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Matthew W. Brandenburg — Portfolio" />
-  <meta property="og:image" content="assets/cover.jpg" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <link rel="icon" href="assets/favicon.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Space Grotesk", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"],
-          },
-          colors: {
-            page: "#050505",
-            card: "#0f0f0f",
-            accent: "#3b82f6",
-            "accent-glow": "#60a5fa",
-            dim: "#a1a1aa",
-            border: "#27272a"
-          },
-          backgroundImage: {
-            'grid-pattern': "linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)",
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'fade-in': 'fadeIn 1s ease-out forwards',
-            'blink': 'blink .75s step-end infinite'
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            fadeIn: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            blink: {
-              'from, to': { borderColor: 'transparent' },
-              '50%': { borderColor: '#3b82f6' }
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { background-color: #050505; color: #e5e7eb; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #050505; }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #555; }
-
-    .glass {
-      background: rgba(15, 15, 15, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .bg-grid {
-      background-size: 40px 40px;
-      mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
-      -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
-    }
-    .magnetic-btn:hover {
-        transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-    }
-  </style>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/site.js"></script>
 </head>
-<body class="font-sans antialiased selection:bg-accent selection:text-white overflow-x-hidden">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Background Grid -->
-  <div class="fixed inset-0 z-0 pointer-events-none">
-    <div class="absolute inset-0 bg-grid-pattern opacity-[0.07] bg-grid"></div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 px-4 py-4">
-    <div class="glass max-w-5xl mx-auto rounded-2xl px-6 py-3 shadow-2xl shadow-black/50 transition-all duration-300">
-      <div class="flex items-center justify-between">
-        <a href="index.html" class="font-bold text-xl tracking-tight text-white flex items-center gap-2 group">
-          <span class="text-accent font-mono group-hover:animate-pulse">&lt;MWB /&gt;</span>
-        </a>
-        <ul class="hidden md:flex gap-8 text-sm font-medium text-dim">
-          <li><a href="about.html" class="hover:text-accent transition-colors">About</a></li>
-          <li><a href="resume.html" class="hover:text-accent transition-colors">Resume</a></li>
-          <li><a href="projects.html" class="hover:text-accent transition-colors">Projects</a></li>
-          <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
-        </ul>
-        <button id="mobile-menu-btn" class="md:hidden text-accent p-1 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        </button>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col gap-4 text-sm font-mono text-dim pb-2 border-t border-white/10 pt-4 animate-fade-in">
-        <a href="about.html" class="block hover:text-accent">About</a>
-        <a href="resume.html" class="block hover:text-accent">Resume</a>
-        <a href="projects.html" class="block hover:text-accent">Projects</a>
-        <a href="contact.html" class="block hover:text-accent">Contact</a>
-      </div>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html" aria-label="Matthew Brandenburg, home">&lt;MWB /&gt;</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="experience.html">Experience</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation" data-menu-button><span></span></button>
     </div>
-  </nav>
+    <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" data-mobile-nav>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link" href="experience.html">Experience</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Abstract Glow -->
-    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] -z-10 animate-float"></div>
-
-    <div class="max-w-4xl mx-auto px-4 text-center z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-xs font-mono mb-8 animate-[fadeIn_1s_ease-out_0.2s_both]">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-        </span>
-        Lamar Lab Assistant & Engineering Student
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="status-pill">Mechanical Engineering Student</div>
+        <h1 class="hero-title">Designing systems.<br><span class="gradient-text">Building outcomes.</span></h1>
+        <p class="lead">I’m Matthew Brandenburg, a Lamar University mechanical engineering student working across launch-vehicle design, advanced manufacturing, and engineering leadership.</p>
+        <p class="identity-line">Vehicle Team Lead · AIAA President · Fabrication Lab Assistant</p>
+        <div class="button-row">
+          <a class="button button-primary" href="projects.html">Explore projects <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="#" data-resume-request>Request résumé</a>
+        </div>
+        <div class="stats" aria-label="Academic summary">
+          <div class="stat"><strong>3.4</strong><span>GPA / 4.0</span></div>
+          <div class="stat"><strong>May 2029</strong><span>Expected graduation</span></div>
+          <div class="stat"><strong>Beaumont</strong><span>Texas</span></div>
+        </div>
       </div>
+    </section>
 
-      <h1 class="text-6xl md:text-8xl font-bold text-white leading-[1] tracking-tight mb-8 animate-[fadeIn_1s_ease-out_0.4s_both]">
-        Engineering <br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-dim relative inline-block">
-          <span class="absolute right-0 top-0 h-full w-1 bg-accent animate-blink"></span>
-          Innovation.
-        </span>
-      </h1>
-
-      <p class="text-lg md:text-xl text-dim max-w-2xl mx-auto leading-relaxed font-light mb-10 animate-[fadeIn_1s_ease-out_0.6s_both]">
-        I’m <strong class="text-white">Matthew Brandenburg</strong>, bridging the gap between theoretical design and practical application.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-4 animate-[fadeIn_1s_ease-out_0.8s_both]">
-        <a href="projects.html" class="magnetic-btn px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300">
-          View Projects
-        </a>
-        <a href="mailto:?subject=Resume%20Request%20-%20Matthew%20Brandenburg&body=Hi%20Matthew,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20resume." class="magnetic-btn px-8 py-4 border border-white/20 text-white hover:bg-white/5 font-mono rounded-full transition-all duration-300 backdrop-blur-sm">
-          Request Resume
-        </a>
+    <section class="section" aria-labelledby="focus-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Engineering focus</p>
+            <h2 id="focus-heading">From concept to flight hardware.</h2>
+          </div>
+          <p>My work connects mechanical design decisions to manufacturability, system integration, and the teams responsible for delivering them.</p>
+        </div>
+        <div class="focus-grid">
+          <article class="info-card glass">
+            <span class="card-label">01 / Build</span>
+            <h3>Mechanical Design & Manufacturing</h3>
+            <p>SolidWorks, CAM, precision machining, additive manufacturing, and end-to-end support from early concepts through assembly.</p>
+          </article>
+          <article class="info-card glass">
+            <span class="card-label">02 / Integrate</span>
+            <h3>Aerospace Systems</h3>
+            <p>Launch-vehicle architecture, OpenRocket analysis, packaging, mechanical interfaces, recovery integration, and flight requirements.</p>
+          </article>
+          <article class="info-card glass">
+            <span class="card-label">03 / Lead</span>
+            <h3>Technical Leadership</h3>
+            <p>Vehicle-team direction, design reviews, technical work coordination, engineering workshops, outreach, and cross-organization collaboration.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <!-- Mini Stats -->
-       <div class="mt-20 pt-10 border-t border-white/5 flex justify-center gap-12 text-dim animate-[fadeIn_1s_ease-out_1s_both]">
-          <div class="text-center">
-            <span class="block font-bold text-white text-2xl">3.71</span>
-            <span class="text-xs font-mono uppercase tracking-wider opacity-60">GPA</span>
+    <section class="section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Major projects</p>
+            <h2 id="projects-heading">Engineering work in progress.</h2>
           </div>
-          <div class="text-center">
-            <span class="block font-bold text-white text-2xl">2029</span>
-            <span class="text-xs font-mono uppercase tracking-wider opacity-60">Graduation</span>
-          </div>
-          <div class="text-center">
-            <span class="block font-bold text-white text-2xl">TX</span>
-            <span class="text-xs font-mono uppercase tracking-wider opacity-60">Location</span>
-          </div>
-       </div>
-    </div>
-  </section>
+          <a class="button button-secondary" href="projects.html">View all five projects</a>
+        </div>
+        <div class="grid-3">
+          <a class="info-card glass home-project" href="projects.html#usli">
+            <img src="assets/images/logo.png" alt="" aria-hidden="true">
+            <span class="card-label">Active · Vehicle Team Lead</span>
+            <h3>NASA Student Launch 2027</h3>
+            <p>Launch-vehicle CAD, systems integration, packaging, and design leadership for LUNAR’s USLI program.</p>
+          </a>
+          <a class="info-card glass home-project" href="projects.html#exoskeleton">
+            <img src="assets/images/asme-logo.png" alt="" aria-hidden="true">
+            <span class="card-label">Active · Design Specialist</span>
+            <h3>Powered Upper-Body Exoskeleton</h3>
+            <p>Adjustable wearable mechanism development with linear actuators, structural interfaces, and safety-driven design.</p>
+          </a>
+          <a class="info-card glass home-project" href="projects.html#ancalagon">
+            <img src="assets/images/logo.png" alt="" aria-hidden="true">
+            <span class="card-label">2025–2026 · Design & Manufacturing</span>
+            <h3>IREC Ancalagon Launch Vehicle</h3>
+            <p>Precision components, boat-tail studies, CAD validation, and mechanical integration across rocket subsystems.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <footer class="py-8 text-center text-dim text-xs font-mono absolute bottom-0 w-full">
-    <div class="flex flex-col items-center gap-2">
-        <button onclick="copyEmail(this)" class="hover:text-accent transition-colors">
-            Copy Email Address
-        </button>
-        <p>© 2029 Matthew W. Brandenburg</p>
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <button type="button" data-copy-email>Copy email address</button>
+      <span>© <span data-current-year></span> Matthew W. Brandenburg</span>
     </div>
   </footer>
-
-  <script>
-    function copyEmail(btn) {
-      const email = atob('bWF0dGJidXJnQG91dGxvb2suY29t');
-      navigator.clipboard.writeText(email).then(() => {
-        const originalText = btn.innerText;
-        btn.innerText = "Copied!";
-        btn.classList.add("text-green-500");
-
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.classList.remove("text-green-500");
-        }, 2000);
-      });
-    }
-
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if(btn && menu) {
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-    }
-  </script>
 </body>
 </html>
