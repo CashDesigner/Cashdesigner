@@ -1,183 +1,162 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About Matthew Brandenburg: mechanical design, manufacturing, aerospace engineering, education, credentials, and technical leadership.">
   <title>About — Matthew W. Brandenburg</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ["Space Grotesk", "sans-serif"], mono: ["JetBrains Mono", "monospace"] },
-          colors: { page: "#050505", card: "#0f0f0f", accent: "#3b82f6", dim: "#a1a1aa", border: "#27272a" },
-          backgroundImage: { 'grid-pattern': "linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)" },
-          animation: { 'fade-in': 'fadeIn 0.6s ease-out forwards' },
-          keyframes: { fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } } }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { background-color: #050505; color: #e5e7eb; }
-    .glass { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-    .bg-grid { background-size: 40px 40px; mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent); }
-    .card-hover:hover { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.2); }
-  </style>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/site.js"></script>
 </head>
-<body class="font-sans antialiased selection:bg-accent selection:text-white">
-
-  <!-- Background -->
-  <div class="fixed inset-0 z-0 pointer-events-none"><div class="absolute inset-0 bg-grid-pattern opacity-[0.07] bg-grid"></div></div>
-
-  <!-- Nav -->
-  <nav class="fixed top-0 w-full z-50 px-4 py-4">
-    <div class="glass max-w-5xl mx-auto rounded-2xl px-6 py-3 shadow-2xl shadow-black/50 transition-all duration-300">
-      <div class="flex items-center justify-between">
-        <a href="index.html" class="font-bold text-xl tracking-tight text-white flex items-center gap-2 group">
-          <span class="text-accent font-mono group-hover:animate-pulse">&lt;MWB /&gt;</span>
-        </a>
-        <ul class="hidden md:flex gap-8 text-sm font-medium text-dim">
-          <li><a href="about.html" class="text-white transition-colors">About</a></li>
-          <li><a href="resume.html" class="hover:text-accent transition-colors">Resume</a></li>
-          <li><a href="projects.html" class="hover:text-accent transition-colors">Projects</a></li>
-          <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
-        </ul>
-        <button id="mobile-menu-btn" class="md:hidden text-accent p-1 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        </button>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col gap-4 text-sm font-mono text-dim pb-2 border-t border-white/10 pt-4 animate-fade-in">
-        <a href="about.html" class="block hover:text-accent text-white">About</a>
-        <a href="resume.html" class="block hover:text-accent">Resume</a>
-        <a href="projects.html" class="block hover:text-accent">Projects</a>
-        <a href="contact.html" class="block hover:text-accent">Contact</a>
-      </div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html" aria-label="Matthew Brandenburg, home">&lt;MWB /&gt;</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="about.html" aria-current="page">About</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="experience.html">Experience</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation" data-menu-button><span></span></button>
     </div>
-  </nav>
+    <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" data-mobile-nav>
+      <a class="nav-link" href="about.html" aria-current="page">About</a>
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link" href="experience.html">Experience</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <main class="pt-32 pb-20 max-w-4xl mx-auto px-4 relative z-10 animate-fade-in">
-    <!-- Header -->
-    <h1 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h1>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">About / Engineering profile</p>
+        <h1 class="page-title">Design. Manufacture.<br><span class="gradient-text">Lead the system.</span></h1>
+        <p class="lead">I work at the intersection of mechanical design, practical manufacturing, aerospace integration, and the technical leadership needed to move a team from concept to tested hardware.</p>
+      </div>
+    </section>
 
-    <!-- Bio with Image -->
-    <div class="flex flex-col md:flex-row gap-8 mb-12">
-        <div class="w-full md:w-1/3 aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 relative group">
-             <img src="assets/profile.jpg" alt="profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+    <section class="section">
+      <div class="container about-layout">
+        <article class="prose-card glass">
+          <p class="eyebrow">Current direction</p>
+          <h2>Mechanical engineering grounded in fabrication.</h2>
+          <p>As a B.S. Mechanical Engineering student at Lamar University, I am building experience across launch vehicles, mechanism design, CAD, and advanced manufacturing. My role in the Engineering Fabrication Lab gives me a direct view of the complete engineering cycle: concept development, CAD refinement, process selection, fabrication, troubleshooting, and final assembly.</p>
+          <p>In LUNAR, I lead launch-vehicle design direction and mechanical integration for NASA Student Launch 2027. In ASME, I support technical projects as Treasurer and Design Specialist. As AIAA President, I am developing aerospace career programming, practical skill workshops, outreach, and opportunities for students to pursue high-power rocketry certifications.</p>
+        </article>
+        <aside class="sidebar-card glass">
+          <p class="eyebrow">Education</p>
+          <h2>Lamar University</h2>
+          <p class="role-org">B.S. Mechanical Engineering</p>
+          <ul class="credential-list" style="margin-top: 1rem">
+            <li><strong>Expected:</strong> May 2029</li>
+            <li><strong>GPA:</strong> 3.4 / 4.0</li>
+            <li><strong>Honor:</strong> Dean’s List, Fall 2025</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="leadership-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Current organizations</p>
+            <h2 id="leadership-heading">Technical leadership in practice.</h2>
+          </div>
+          <p>Each role combines organizational responsibility with direct support for engineering work, student development, or cross-team delivery.</p>
         </div>
-        <div class="w-full md:w-2/3 glass p-8 rounded-2xl">
-          <p class="text-lg text-dim leading-relaxed">
-            I am a Mechanical Engineering student at <span class="text-white font-medium">Lamar University</span> with a deep passion for bridging the gap between theoretical models and physical reality. Currently serving as a Student Assistant at the Lamar Engineering Fabrication Lab, I spend my days managing industrial equipment, mentoring peers, and optimizing manufacturing workflows.
-          </p>
-          <p class="text-lg text-dim leading-relaxed mt-4">
-            My technical focus lies in <span class="text-accent">precision manufacturing</span>, <span class="text-accent">iterative design</span>, and <span class="text-accent">machine maintenance</span>. Whether it's designing complex parametric assemblies in SolidWorks or operating Haas CNC machines, I thrive on the challenge of making things work better, faster, and more efficiently.
-          </p>
-        </div>
-    </div>
-
-    <!-- Skills / Software -->
-    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-      <span class="w-8 h-[1px] bg-accent"></span> Programs & Software
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-      <div class="glass p-6 rounded-xl card-hover transition-all duration-300">
-        <h3 class="text-lg font-bold text-white mb-3">Design & CAD</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">SolidWorks</span>
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">AutoCAD</span>
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Fusion 360</span>
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Parametric Modeling</span>
+        <div class="grid-3">
+          <article class="info-card glass organization-card">
+            <span class="org-watermark" aria-hidden="true">AIAA</span>
+            <span class="card-label">2026–2027</span>
+            <h3>AIAA President</h3>
+            <p>Leading aerospace-industry engagement, career development, outreach, practical workshops, and opportunities for students to pursue L1/L2 HPR certification.</p>
+          </article>
+          <article class="info-card glass organization-card">
+            <img src="assets/images/asme-logo.png" alt="" aria-hidden="true">
+            <span class="card-label">Current</span>
+            <h3>ASME Treasurer & Design Specialist</h3>
+            <p>Supporting budgets and purchasing while contributing CAD, design reviews, manufacturability, and mechanical development for technical projects.</p>
+          </article>
+          <article class="info-card glass organization-card">
+            <img src="assets/images/logo.png" alt="" aria-hidden="true">
+            <span class="card-label">2026–2027</span>
+            <h3>LUNAR Vehicle Team Lead</h3>
+            <p>Directing launch-vehicle CAD, mechanical architecture, work coordination, design integration, and collaboration across payload, avionics, recovery, and manufacturing.</p>
+          </article>
         </div>
       </div>
-      <div class="glass p-6 rounded-xl card-hover transition-all duration-300">
-        <h3 class="text-lg font-bold text-white mb-3">Manufacturing & Tools</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">FDM Printing (Bambu/Qidi)</span>
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">SLA Resin</span>
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Haas CNC Operator</span>
-          <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-dim">Fab Lab Safety</span>
+    </section>
+
+    <section class="section" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Technical capabilities</p>
+            <h2 id="capabilities-heading">Tools connected to outcomes.</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="info-card glass">
+            <span class="card-label">Design & analysis</span>
+            <h3>CAD and Engineering Software</h3>
+            <ul class="tag-list">
+              <li>SolidWorks</li><li>OpenRocket</li><li>AutoCAD</li><li>Fusion 360 CAM</li><li>Parametric Modeling</li><li>Excel</li>
+            </ul>
+          </article>
+          <article class="info-card glass">
+            <span class="card-label">Manufacturing</span>
+            <h3>Machining and Fabrication</h3>
+            <ul class="tag-list">
+              <li>CNC Milling</li><li>CNC Turning</li><li>Welding</li><li>Laser Cutting</li><li>Woodworking</li><li>Mechanical Assembly</li>
+            </ul>
+          </article>
+          <article class="info-card glass">
+            <span class="card-label">Rapid prototyping</span>
+            <h3>Additive and Iterative Build</h3>
+            <ul class="tag-list">
+              <li>FDM Printing</li><li>SLA / Resin</li><li>SLS / Nylon</li><li>DFM</li><li>Fixtures</li><li>Process Selection</li>
+            </ul>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Certifications (Visual) -->
-    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-        <span class="w-8 h-[1px] bg-accent"></span> Certifications
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-        <div class="glass p-2 rounded-xl border border-white/10 group relative overflow-hidden">
-             <img src="assets/images/cnc-cert.jpg" alt="CNC Certification" class="w-full h-64 object-cover rounded-lg">
-             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-mono border border-accent px-4 py-2 rounded-full">CNC Certification</span>
-             </div>
-        </div>
-        <div class="glass p-2 rounded-xl border border-white/10 group relative overflow-hidden">
-             <img src="assets/images/cnc-cert-group.jpg" alt="Group Certification" class="w-full h-64 object-cover rounded-lg">
-             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                 <span class="text-white font-mono border border-accent px-4 py-2 rounded-full">Team Certification</span>
-             </div>
-        </div>
-    </div>
-
-    <!-- Honors -->
-    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-      <span class="w-8 h-[1px] bg-accent"></span> Honors & Awards
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="glass p-6 rounded-xl border-t-4 border-t-accent">
-        <h3 class="text-white font-bold text-xl mb-2">Academic Excellence Scholar</h3>
-        <p class="text-dim text-sm mb-4">Awarded for high school academic achievement.</p>
-        <div class="flex justify-between items-center text-xs font-mono">
-           <span class="text-accent bg-accent/10 px-2 py-1 rounded">Covers 40% Tuition</span>
-           <span class="text-dim">Sept 2025 - Present</span>
-        </div>
+    <section class="section" aria-labelledby="credentials-heading">
+      <div class="container grid-2">
+        <article class="sidebar-card glass">
+          <p class="eyebrow">Technical credentials</p>
+          <h2 id="credentials-heading">Certifications</h2>
+          <ul class="credential-list">
+            <li>AutoCAD Certification</li>
+            <li>Microsoft Office Specialist</li>
+            <li>ACE CNC Machining Training Program</li>
+            <li>Haas Basic Mill Operator</li>
+            <li>Haas Basic Lathe Operator</li>
+            <li>Level 1 High Power Rocketry Certification</li>
+          </ul>
+        </article>
+        <article class="sidebar-card glass">
+          <p class="eyebrow">Rocketry credential</p>
+          <h2>L1 High Power Rocketry</h2>
+          <p style="margin: 0; color: var(--dim)">Certification supporting continued high-power rocketry work and launch-vehicle leadership.</p>
+          <div class="certificate-image">
+            <img src="assets/images/rocket-cert.jpg" alt="Level 1 High Power Rocketry certification" loading="lazy" width="739" height="1600">
+          </div>
+        </article>
       </div>
-      <div class="glass p-6 rounded-xl border-t-4 border-t-accent">
-        <h3 class="text-white font-bold text-xl mb-2">Giannopoulos Regents Scholarship</h3>
-        <p class="text-dim text-sm mb-4">Merit-based engineering scholarship.</p>
-        <div class="flex justify-between items-center text-xs font-mono">
-           <span class="text-accent bg-accent/10 px-2 py-1 rounded">Covers 60% Tuition</span>
-           <span class="text-dim">Sept 2025 - Present</span>
-        </div>
-      </div>
-    </div>
-
+    </section>
   </main>
 
-  <footer class="py-8 text-center text-dim text-xs font-mono">
-    <div class="flex flex-col items-center gap-2">
-        <button onclick="copyEmail(this)" class="hover:text-accent transition-colors">
-            Copy Email Address
-        </button>
-        <p>© 2029 Matthew W. Brandenburg</p>
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <button type="button" data-copy-email>Copy email address</button>
+      <span>© <span data-current-year></span> Matthew W. Brandenburg</span>
     </div>
   </footer>
-
-  <script>
-    function copyEmail(btn) {
-      const email = atob('bWF0dGJidXJnQG91dGxvb2suY29t');
-      navigator.clipboard.writeText(email).then(() => {
-        const originalText = btn.innerText;
-        btn.innerText = "Copied!";
-        btn.classList.add("text-green-500");
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.classList.remove("text-green-500");
-        }, 2000);
-      });
-    }
-
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if(btn && menu) {
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-    }
-  </script>
 </body>
 </html>

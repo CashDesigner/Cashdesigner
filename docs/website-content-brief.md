@@ -11,6 +11,9 @@ _Last consolidated: August 13, 2026._
 - **Visual direction:** Preserve the existing dark, blue-accented technical aesthetic and overall design language. Content changes may adjust layout, but should not replace the established visual identity.
 - **Project interaction:** Keep projects on one page. Each project card should reveal additional concise information when hovered or focused; do not create separate project-detail pages. The expanded content must also work for keyboard and touch users, where hover is unavailable.
 - **Résumé privacy:** Do not offer a directly accessible public résumé download. Retain a controlled request-by-email flow or another privacy-preserving request mechanism.
+- **Navigation:** Rename the former `Resume` navigation item to `Experience`. Keep a private résumé-request action on both the landing page and the Experience page.
+- **Project visuals:** When project photos are unavailable, use the associated organization marks as subtle card backgrounds. Do not invent project photography.
+- **Confirmed contact:** Continue using `mattbburg@outlook.com` for copy-email and résumé-request actions and `linkedin.com/in/matthew-brandenburg-944b4a379` for LinkedIn.
 - **Pending pull requests:** Use their work only when it improves the planned site:
   - PR #7's responsive homepage fixes are useful, but the final implementation should incorporate reviewer recommendations so the footer cannot overlap content at short desktop viewport heights and heading scaling remains gradual.
   - PR #8's L1 High Powered Rocketry certification content is required by this brief. Optimize the certificate image, improve its alternative text/loading behavior, and remove superseded assets only after confirming they are unused.
