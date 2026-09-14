@@ -1,0 +1,317 @@
+/*
+ * Homepage layout.
+ * Mobile preserves the original portrait-first presentation.
+ * Wide screens use a compact editorial split so the page does not feel like
+ * a mobile layout enlarged to desktop size.
+ */
+.home-page {
+  background:
+    radial-gradient(circle at 50% 10rem, rgba(59, 130, 246, 0.08), transparent 36rem),
+    #080808;
+}
+
+.home-page::before {
+  opacity: 0.28;
+}
+
+.home-page .brand-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.home-hero {
+  padding: 1.25rem 0 3.5rem;
+}
+
+.portrait-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.portrait-frame {
+  width: min(100%, 390px);
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.95rem;
+  background: var(--card);
+  box-shadow: 0 24px 65px -38px rgba(0, 0, 0, 0.95);
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 49%;
+}
+
+.home-intro {
+  max-width: 820px;
+  margin-top: 1.6rem;
+}
+
+.home-intro .eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.home-intro h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2.35rem, 7vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+}
+
+.home-intro .lead {
+  max-width: 740px;
+  margin: 1.25rem auto 0;
+  font-size: clamp(1.02rem, 2vw, 1.2rem);
+}
+
+.portrait-hero .button-row {
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.home-overview {
+  padding-top: 2rem;
+}
+
+.education-summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  align-items: center;
+  padding: 1.4rem;
+  border-radius: 1rem;
+}
+
+.education-summary h3,
+.current-role h3 {
+  margin: 0;
+  color: var(--white);
+}
+
+.education-summary p,
+.current-role p {
+  margin: 0.25rem 0 0;
+  color: var(--dim);
+}
+
+.education-facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+}
+
+.education-facts div {
+  min-height: auto;
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.education-facts dt {
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.education-facts dd {
+  margin: 0.35rem 0 0;
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.current-roles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.current-role {
+  min-height: 154px;
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.current-role .card-label {
+  margin-bottom: 0.45rem;
+}
+
+.current-role h3 {
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.current-role p {
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.role-logo {
+  width: 116px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem 0.85rem 0.5rem 0.15rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.role-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.role-logo-lunar img {
+  max-width: 72px;
+}
+
+.role-monogram {
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  border: 1px solid rgba(230, 0, 51, 0.42);
+  border-radius: 50%;
+  background: rgba(230, 0, 51, 0.08);
+  color: #f24364;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+@media (min-width: 861px) {
+  .home-hero {
+    min-height: auto;
+    display: block;
+    padding: clamp(4.5rem, 8vh, 6.5rem) 0 5.5rem;
+  }
+
+  .portrait-hero {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.76fr) minmax(480px, 1.24fr);
+    grid-template-areas:
+      "portrait intro"
+      "portrait actions";
+    gap: 0 5.5rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  .portrait-frame {
+    grid-area: portrait;
+    width: min(100%, 390px);
+    justify-self: end;
+    border-radius: 0.75rem;
+  }
+
+  .home-intro {
+    grid-area: intro;
+    max-width: 650px;
+    margin-top: 0;
+  }
+
+  .home-intro h1 {
+    max-width: 650px;
+    font-size: clamp(3rem, 5.2vw, 4.8rem);
+  }
+
+  .home-intro .lead {
+    max-width: 625px;
+    margin-inline: 0;
+    font-size: 1.12rem;
+    line-height: 1.75;
+  }
+
+  .portrait-hero .button-row {
+    grid-area: actions;
+    justify-content: flex-start;
+    align-self: start;
+    margin-top: 1.8rem;
+  }
+
+  .home-overview {
+    padding-top: 4.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .education-summary {
+    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.55fr);
+    gap: 2rem;
+    padding: 1.6rem 1.75rem;
+  }
+
+  .education-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .education-facts div {
+    min-height: 62px;
+    padding: 0 1.15rem;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  .current-roles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .current-role {
+    min-height: 150px;
+    grid-template-columns: 142px minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .role-logo {
+    width: 142px;
+    height: 82px;
+    padding-right: 1.1rem;
+  }
+
+  .role-monogram {
+    width: 78px;
+    height: 78px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portrait-hero {
+    grid-template-columns: 410px minmax(0, 1fr);
+    gap: 0 6.5rem;
+  }
+
+  .portrait-frame {
+    width: 390px;
+  }
+}
+
+@media (max-width: 400px) {
+  .current-role {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+
+  .role-logo {
+    width: 88px;
+  }
+
+  .current-role h3 {
+    font-size: 1rem;
+  }
+}
+
