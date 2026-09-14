@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="assets/site.css">
   <script defer src="assets/site.js"></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="container nav-shell">
-      <a class="brand" href="index.html" aria-label="Matthew Brandenburg, home">&lt;MWB /&gt;</a>
+      <a class="brand brand-name" href="index.html" aria-label="Matthew Brandenburg, home">Matthew Brandenburg</a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a class="nav-link" href="about.html">About</a>
         <a class="nav-link" href="projects.html">Projects</a>
@@ -32,20 +32,63 @@
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="container">
-        <div class="status-pill">Mechanical Engineering Student</div>
-        <h1 class="hero-title">Designing systems.<br><span class="gradient-text">Building outcomes.</span></h1>
-        <p class="lead">I’m Matthew Brandenburg, a Lamar University mechanical engineering student working across launch-vehicle design, advanced manufacturing, and engineering leadership.</p>
-        <p class="identity-line">Vehicle Team Lead · AIAA President · Fabrication Lab Assistant</p>
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="container portrait-hero">
+        <figure class="portrait-frame">
+          <img src="assets/images/matthew-portrait.jpg" alt="Matthew Brandenburg" width="1200" height="1571" fetchpriority="high">
+        </figure>
+        <div class="home-intro">
+          <p class="eyebrow">Matthew W. Brandenburg</p>
+          <h1 id="home-title">Mechanical engineering student at Lamar University.</h1>
+          <p class="lead">I enjoy taking ideas from CAD into the shop, especially when the work involves launch vehicles, mechanisms, and hands-on manufacturing. I’m currently building that experience through student engineering teams and Lamar’s Engineering Fabrication Lab.</p>
+        </div>
         <div class="button-row">
-          <a class="button button-primary" href="projects.html">Explore projects <span aria-hidden="true">→</span></a>
+          <a class="button button-primary" href="projects.html">View my projects</a>
           <a class="button button-secondary" href="#" data-resume-request>Request résumé</a>
         </div>
-        <div class="stats" aria-label="Academic summary">
-          <div class="stat"><strong>3.4</strong><span>GPA / 4.0</span></div>
-          <div class="stat"><strong>May 2029</strong><span>Expected graduation</span></div>
-          <div class="stat"><strong>Beaumont</strong><span>Texas</span></div>
+      </div>
+    </section>
+
+    <section class="section home-overview" aria-labelledby="overview-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Current roles &amp; education</p>
+            <h2 id="overview-heading">What I’m doing now.</h2>
+          </div>
+          <p>A quick view of the teams I work with and where I am academically.</p>
+        </div>
+
+        <article class="education-summary glass">
+          <div>
+            <span class="card-label">Education</span>
+            <h3>Lamar University</h3>
+            <p>B.S. Mechanical Engineering</p>
+          </div>
+          <dl class="education-facts">
+            <div><dt>GPA</dt><dd>3.4 / 4.0</dd></div>
+            <div><dt>Expected graduation</dt><dd>May 2029</dd></div>
+            <div><dt>Academic recognition</dt><dd>Dean’s List · Fall 2025</dd></div>
+          </dl>
+        </article>
+
+        <div class="current-roles">
+          <article class="current-role glass">
+            <div class="role-logo role-logo-lunar"><img src="assets/images/lunar-red.png" alt="LUNAR" width="883" height="1200"></div>
+            <div><span class="card-label">2026–2027</span><h3>Vehicle Team Lead</h3><p>LUNAR · NASA Student Launch</p></div>
+          </article>
+          <article class="current-role glass">
+            <div class="role-logo role-logo-wide"><img src="assets/images/aiaa-lamar.png" alt="AIAA Lamar University Student Branch" width="1800" height="729"></div>
+            <div><span class="card-label">2026–2027</span><h3>President</h3><p>AIAA · Lamar University Student Branch</p></div>
+          </article>
+          <article class="current-role glass">
+            <div class="role-logo role-logo-asme"><img src="assets/images/asme-lamar.png" alt="ASME Lamar University Student Section" width="1600" height="757"></div>
+            <div><span class="card-label">Current</span><h3>Secretary &amp; Design Specialist</h3><p>ASME · Lamar University Student Section</p></div>
+          </article>
+          <article class="current-role glass">
+            <div class="role-monogram" aria-hidden="true">LU</div>
+            <div><span class="card-label">Since September 2025</span><h3>Engineering Fabrication Lab Assistant</h3><p>Lamar University</p></div>
+          </article>
         </div>
       </div>
     </section>
@@ -55,26 +98,14 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Engineering focus</p>
-            <h2 id="focus-heading">From concept to flight hardware.</h2>
+            <h2 id="focus-heading">How I like to work.</h2>
           </div>
-          <p>My work connects mechanical design decisions to manufacturability, system integration, and the teams responsible for delivering them.</p>
+          <p>I’m most useful where design decisions, manufacturing constraints, and team coordination meet.</p>
         </div>
         <div class="focus-grid">
-          <article class="info-card glass">
-            <span class="card-label">01 / Build</span>
-            <h3>Mechanical Design & Manufacturing</h3>
-            <p>SolidWorks, CAM, precision machining, additive manufacturing, and end-to-end support from early concepts through assembly.</p>
-          </article>
-          <article class="info-card glass">
-            <span class="card-label">02 / Integrate</span>
-            <h3>Aerospace Systems</h3>
-            <p>Launch-vehicle architecture, OpenRocket analysis, packaging, mechanical interfaces, recovery integration, and flight requirements.</p>
-          </article>
-          <article class="info-card glass">
-            <span class="card-label">03 / Lead</span>
-            <h3>Technical Leadership</h3>
-            <p>Vehicle-team direction, design reviews, technical work coordination, engineering workshops, outreach, and cross-organization collaboration.</p>
-          </article>
+          <article class="info-card glass"><span class="card-label">Design</span><h3>Mechanical design &amp; CAD</h3><p>SolidWorks, mechanism development, packaging, interfaces, and design reviews.</p></article>
+          <article class="info-card glass"><span class="card-label">Build</span><h3>Manufacturing &amp; prototyping</h3><p>CAM, CNC machining, additive manufacturing, process selection, and assembly.</p></article>
+          <article class="info-card glass"><span class="card-label">Integrate</span><h3>Aerospace systems &amp; teamwork</h3><p>Launch-vehicle integration, work coordination, documentation, and practical problem solving.</p></article>
         </div>
       </div>
     </section>
@@ -84,25 +115,25 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Major projects</p>
-            <h2 id="projects-heading">Engineering work in progress.</h2>
+            <h2 id="projects-heading">A few projects I’m working on.</h2>
           </div>
           <a class="button button-secondary" href="projects.html">View all five projects</a>
         </div>
         <div class="grid-3">
           <a class="info-card glass home-project" href="projects.html#usli">
-            <img src="assets/images/logo.png" alt="" aria-hidden="true">
+            <img src="assets/images/lunar-red.png" alt="" aria-hidden="true">
             <span class="card-label">Active · Vehicle Team Lead</span>
             <h3>NASA Student Launch 2027</h3>
             <p>Launch-vehicle CAD, systems integration, packaging, and design leadership for LUNAR’s USLI program.</p>
           </a>
           <a class="info-card glass home-project" href="projects.html#exoskeleton">
-            <img src="assets/images/asme-logo.png" alt="" aria-hidden="true">
+            <img src="assets/images/asme-lamar.png" alt="" aria-hidden="true">
             <span class="card-label">Active · Design Specialist</span>
             <h3>Powered Upper-Body Exoskeleton</h3>
             <p>Adjustable wearable mechanism development with linear actuators, structural interfaces, and safety-driven design.</p>
           </a>
           <a class="info-card glass home-project" href="projects.html#ancalagon">
-            <img src="assets/images/logo.png" alt="" aria-hidden="true">
+            <img src="assets/images/lunar-red.png" alt="" aria-hidden="true">
             <span class="card-label">2025–2026 · Design & Manufacturing</span>
             <h3>IREC Ancalagon Launch Vehicle</h3>
             <p>Precision components, boat-tail studies, CAD validation, and mechanical integration across rocket subsystems.</p>
@@ -120,3 +151,4 @@
   </footer>
 </body>
 </html>
+
