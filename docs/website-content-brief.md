@@ -82,15 +82,10 @@ Say "organizing/supporting opportunities for students to pursue L1/L2 HPR certif
 
 ASME — American Society of Mechanical Engineers
 Current roles:
-- Treasurer
+- Secretary
 - Design Specialist
 
-Old title "Secretary" is obsolete and should be removed.
-
-Treasurer responsibilities:
-- Financial/organizational support
-- Budget and purchasing coordination
-- Supporting project activities
+Secretary is the confirmed current officer title. Do not replace it with Treasurer.
 
 Design Specialist responsibilities:
 - Mechanical design
@@ -425,7 +420,7 @@ Show these as CURRENT:
 President
 
 2. ASME
-Treasurer & Design Specialist
+Secretary & Design Specialist
 
 3. LUNAR
 Vehicle Team Lead
@@ -558,7 +553,7 @@ EXPERIENCE
 LEADERSHIP
 Can live inside About for now rather than creating another navigation page:
 - AIAA President
-- ASME Treasurer & Design Specialist
+- ASME Secretary & Design Specialist
 - LUNAR Vehicle Team Lead
 
 DO NOT ADD:
@@ -571,7 +566,7 @@ SITE-WIDE CLEANUP
 
 - Update GPA to 3.4.
 - Remove LUNAR Safety Officer as current role.
-- Remove ASME Secretary as current role.
+- Keep ASME Secretary as the current officer role; Treasurer is incorrect.
 - Remove NEST from current organizations.
 - Make copyright year consistent/current and preferably generated automatically.
 - Do not overstate projects that are still in development.
