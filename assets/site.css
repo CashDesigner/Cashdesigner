@@ -233,6 +233,7 @@ img { display: block; max-width: 100%; }
 .prose-card h2, .sidebar-card h2 { margin: 0 0 1rem; color: var(--paper); font-family: var(--display); font-size: 1.7rem; font-weight: 400; line-height: 1.12; }
 .prose-card p { margin: 0 0 1rem; color: var(--paper-soft); }
 .prose-card p:last-child { margin-bottom: 0; }
+.about-profile { display: grid; gap: 1rem; }
 .focus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .focus-grid > * { border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .organization-card { min-height: 285px; display: flex; flex-direction: column; justify-content: end; }
